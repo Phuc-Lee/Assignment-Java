@@ -1,7 +1,7 @@
 package assignment;
 
 public class Problem {
-    private String problem;
+    private String problemID;
     private String date;
     private String name;
     private String short_decrip;
@@ -14,7 +14,7 @@ public class Problem {
     }
 
     public Problem(String problem, String date, String name, String short_decrip, String long_decrip, double mark_weight, int category, String author) {
-        this.problem = problem;
+        this.problemID = problem;
         this.date = date;
         this.name = name;
         this.short_decrip = short_decrip;
@@ -25,11 +25,11 @@ public class Problem {
     }
 
     public String getProblem() {
-        return problem;
+        return problemID;
     }
 
     public void setProblem(String problem) {
-        this.problem = problem;
+        this.problemID = problem;
     }
 
     public String getDate() {
@@ -90,7 +90,7 @@ public class Problem {
 
     @Override
     public String toString() {
-        return "Problem{" + "problem=" + problem + ", date=" + date + ", name=" + name + ", short_decrip=" + short_decrip + ", long_decrip=" + long_decrip + ", mark_weight=" + mark_weight + ", category=" + category + ", author=" + author + '}';
+        return "Problem{" + "problemID=" + problemID + ", date=" + date + ", name=" + name + ", short_decrip=" + short_decrip + ", long_decrip=" + long_decrip + ", mark_weight=" + mark_weight + ", category=" + category + ", author=" + author + '}';
     }
     
     
