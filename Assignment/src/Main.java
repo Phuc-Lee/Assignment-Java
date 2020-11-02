@@ -1,5 +1,12 @@
-public class Main {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+
+package assignment;
+
+
+public class Assignment {
+
+
+    public static void main(String[] args) {
+        // TODO code application logic here
     }
+    
 }
