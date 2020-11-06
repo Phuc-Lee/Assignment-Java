@@ -62,6 +62,14 @@ public class Contestant {
         this.rank = rank;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 //    @Override
 //    public String toString() {
 //        return "Contestant{" + "name=" + name + ", id=" + id + ", email=" + email + ", mobilephone=" + mobilephone + ", rank=" + rank + '}';
@@ -70,16 +78,19 @@ public class Contestant {
         System.out.println("Change contestant's information ");
         Scanner sc = new Scanner(System.in);
         System.out.println("Name : ");
-        String newName = sc.nextLine();
+        setName(sc.nextLine()) ;
+        Scanner sc1 = new Scanner(System.in);
         System.out.println("Email : ");
-        String newEmail = sc.nextLine();
+        setEmail(sc1.nextLine()) ;
+        Scanner sc2 = new Scanner(System.in);
         System.out.println("MobilePhone : ");
-        int newPhone = sc.nextInt();
-        while(newPhone <= 1000000000 || (newPhone / 1000000000) > 100){
-            System.out.println("Invalid Phone Number , please re-enter :");
-            newPhone = sc.nextInt();
-        }
+        setMobilephone(sc2.nextLine()) ;
+//        while(newPhone <= 1000000000 || (newPhone / 1000000000) > 100){
+//            System.out.println("Invalid Phone Number , please re-enter :");
+//            newPhone = sc.nextInt();
+//        }
+        Scanner sc3 = new Scanner(System.in);
         System.out.println("Password : ");
-        String newPass = sc.nextLine();
+        setPassword(sc3.nextLine()) ;
     }
 }
