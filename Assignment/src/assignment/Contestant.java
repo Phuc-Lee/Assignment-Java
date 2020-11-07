@@ -3,7 +3,6 @@ package assignment;
 import java.util.Scanner;
 
 public class Contestant {
-
     private String name;
     private String id;
     private String email;
@@ -12,6 +11,12 @@ public class Contestant {
     private String password;
 
     public Contestant() {
+        this.name = "Unknown";
+        this.email = "Unknown";
+        this.id = "Unkonwn";
+        this.password = "Unknown";
+        this.rank = 0;
+        this.mobilephone = "Unknown";
     }
 
     public Contestant(String name, String id, String email, String mobilephone, int rank) {
@@ -70,27 +75,48 @@ public class Contestant {
         this.password = password;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Contestant{" + "name=" + name + ", id=" + id + ", email=" + email + ", mobilephone=" + mobilephone + ", rank=" + rank + '}';
-//    }
     public void changeInfor() {
         System.out.println("Change contestant's information ");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Name : ");
-        setName(sc.nextLine()) ;
-        Scanner sc1 = new Scanner(System.in);
-        System.out.println("Email : ");
-        setEmail(sc1.nextLine()) ;
-        Scanner sc2 = new Scanner(System.in);
-        System.out.println("MobilePhone : ");
-        setMobilephone(sc2.nextLine()) ;
-//        while(newPhone <= 1000000000 || (newPhone / 1000000000) > 100){
-//            System.out.println("Invalid Phone Number , please re-enter :");
-//            newPhone = sc.nextInt();
-//        }
-        Scanner sc3 = new Scanner(System.in);
-        System.out.println("Password : ");
-        setPassword(sc3.nextLine()) ;
+        
+        System.out.print("Name: ");
+        String name = sc.nextLine(); 
+        setName(name) ;
+        
+        System.out.print("Email: ");
+        String mail = sc.nextLine();
+        setEmail(mail) ;
+
+        System.out.print("MobilePhone: ");
+        String phone;
+        do{
+            phone = sc.nextLine();
+        }while(!checkValidation(phone, 'h'));
+        setMobilephone(phone);
+
+        System.out.print("Password (must be longer than 8 charaters): ");
+        String pass;
+        do{
+            pass = sc.nextLine();
+        }while(!checkValidation(pass,'a'));
+        setPassword(pass);
+    }
+    
+    private boolean checkValidation(String str, char type){
+        if(type == 'a'){
+            if(str.length() < 8 || str.length() > 32){
+                return false;
+            }
+        }else if(type == 'h'){
+            if(str.length() != 10){
+                return false;
+            }
+            try{
+                int intForm = Integer.parseInt(str);
+            }catch(NumberFormatException e){
+                return false;                
+            }
+        }
+        return true;
     }
 }
