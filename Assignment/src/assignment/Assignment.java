@@ -32,7 +32,7 @@ public class Assignment {
         
         System.out.print("User name: ");
         String name = sc.nextLine();
-        boolean checkName = check(name,'n');
+        boolean checkName = check(name,'n');        
         System.out.print("Password: ");
         String pass = sc.nextLine();
         boolean checkPass = check(pass,'p');
@@ -41,13 +41,10 @@ public class Assignment {
             System.out.println("Welcome back!");
             return true;
         }else{
+            System.out.println("Check again username or password!");
             logIn();
         }
         return false;
-    }
-    
-    static void signIn(){
-        
     }
     
     static boolean check(String str, char a){
@@ -66,7 +63,6 @@ public class Assignment {
         
         
         for (Map.Entry ele : loginfo.entrySet()) {
-//            System.out.println(ele);
             if (a == 'n') {
                 if (str.equals(ele.getKey())) {
                     i = true;
