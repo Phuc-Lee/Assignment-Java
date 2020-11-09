@@ -16,15 +16,15 @@ public class Assignment {
             System.out.println("hello");
         }
         
-//        try {
-//            FileWriter writeToFile  = new FileWriter("questionBank.dat",true);  // true is for appending to the end of the file
-//            writeToFile.append("This is a test for reading and writing file!\n");
-//            writeToFile.close();
-//            String[] lines = Files.readAllLines(new File("questionBank.dat").toPath()).toArray(new String[0]);
-//            
-//        } catch (IOException ex) {
-//            System.out.println("You have not put question bank file!");
-//        }
+        try {
+            FileWriter writeToFile  = new FileWriter("questionBank.dat",true);  // true is for appending to the end of the file
+            writeToFile.append("This is a test for reading and writing file!\n");
+            writeToFile.close();
+            String[] lines = Files.readAllLines(new File("questionBank.dat").toPath()).toArray(new String[0]);
+            
+        } catch (IOException ex) {
+            System.out.println("You have not put question bank file!");
+        }
     }
     
     static boolean logIn(){
