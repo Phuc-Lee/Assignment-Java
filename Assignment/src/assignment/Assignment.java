@@ -1,30 +1,36 @@
 package assignment;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
+import java.io.FileNotFoundException;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Assignment {
     public static void main(String[] args) {
         boolean logIn = logIn();
         
-        if(logIn){
-            System.out.println("hello");
+        TreeSet<Problem> problem = new TreeSet<>(new sortByID());
+        try {
+            Scanner sc = new Scanner(new File("questionBank.dat"));
+            while(sc.hasNext()){
+                String[] split = sc.next().split("~");
+                problem.add(new Problem());
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Assignment.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        try {
-            FileWriter writeToFile  = new FileWriter("questionBank.dat",true);  // true is for appending to the end of the file
-            writeToFile.append("This is a test for reading and writing file!\n");
-            writeToFile.close();
-            String[] lines = Files.readAllLines(new File("questionBank.dat").toPath()).toArray(new String[0]);
+        
+        if(logIn){
+            System.out.println("hello");
             
-        } catch (IOException ex) {
-            System.out.println("You have not put question bank file!");
         }
+ 
     }
     
     static boolean logIn(){
@@ -55,7 +61,7 @@ public class Assignment {
                 String[] split = sc1.next().split("~");
                 loginfo.put(split[0], split[1]);
             }
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
         
@@ -80,4 +86,14 @@ public class Assignment {
         
         return i;
     }
+
+    
 }
+
+
+class sortByID implements Comparator<Problem>{
+    @Override
+    public int compare(Problem o1, Problem o2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    }
