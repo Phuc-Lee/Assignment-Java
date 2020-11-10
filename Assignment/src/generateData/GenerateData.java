@@ -17,7 +17,7 @@ public class GenerateData {
 
         TreeSet<Contestant> lst = new TreeSet<>();
         Random ran = new Random();
-        FileWriter writer = new FileWriter(new File("contestant.txt"));
+        FileWriter writer = new FileWriter(new File("contestant.dat"));
         for (int i = 0; i < 100; i++) {
             String a = ho[ran.nextInt(ho.length)];
             String b = dem[ran.nextInt(dem.length)];
