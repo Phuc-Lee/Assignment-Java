@@ -80,13 +80,13 @@ public class Assignment {
                 if (str.equals(ele.getKey())) {
                     i = true;
                 } else {
-                    return false;
+                    i = false;
                 }
             } else if (a == 'p') {
                 if (str.equals(ele.getValue())) {
                     i = true;
                 } else {
-                    return false;
+                    i = false;
                 }
             }
         }
