@@ -19,12 +19,13 @@ public class Contestant {
         this.mobilephone = "Unknown";
     }
 
-    public Contestant(String name, String id, String email, String mobilephone, int rank) {
+    public Contestant(String name, String id, String email, String mobilephone, int rank, String Password) {
         this.name = name;
         this.id = id;
         this.email = email;
         this.mobilephone = mobilephone;
         this.rank = rank;
+        this.password = password;
     }
 
     public String getName() {

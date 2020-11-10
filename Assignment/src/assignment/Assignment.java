@@ -11,63 +11,70 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Assignment {
+
     public static void main(String[] args) {
+//        int id = (int)Math.floor((Math.random()*899999)+100000);
+//        String ID = "HE" + Double.toString(id);
+//        Contestant phuc = new Contestant("lehoangphuc", ID, "lehoangphuc@fpt.edu.vn", "1234567890", 1, "1234");
+
         boolean logIn = logIn();
-        
+
         TreeSet<Problem> problem = new TreeSet<>(new sortByID());
         try {
             Scanner sc = new Scanner(new File("questionBank.dat"));
-            while(sc.hasNext()){
+            while (sc.hasNext()) {
                 String[] split = sc.next().split("~");
                 problem.add(new Problem());
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Assignment.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        if(logIn){
+
+        if (logIn) {
             System.out.println("hello");
-            
+
         }
- 
+
     }
-    
-    static boolean logIn(){
+
+    static boolean logIn() {
         Scanner sc = new Scanner(System.in);
-        
-        System.out.print("User name: ");
+
+        System.out.print("User name(Email): ");
         String name = sc.nextLine();
-        boolean checkName = check(name,'n');        
+        boolean checkName = check(name, 'n');
         System.out.print("Password: ");
         String pass = sc.nextLine();
-        boolean checkPass = check(pass,'p');
+        boolean checkPass = check(pass, 'p');
 
-        if(checkName && checkPass){
+        if (checkName && checkPass) {
             System.out.println("Welcome back!");
             return true;
-        }else{
-            System.out.println("Check again username or password!");
+        } else if (checkName == false && checkPass == false) {
+            System.out.println("Account doesn't exist");
+            logIn();
+        } else if (checkName && checkPass == false) {
+            System.out.println("Wrong password");
             logIn();
         }
+
         return false;
     }
-    
-    static boolean check(String str, char a){
+
+    static boolean check(String str, char a) {
         HashMap<String, String> loginfo = new HashMap<>();
         try {
             Scanner sc1 = new Scanner(new File("contestant.dat"));
-            while (sc1.hasNext()){
+            while (sc1.hasNext()) {
                 String[] split = sc1.next().split("~");
-                loginfo.put(split[0], split[1]);
+                loginfo.put(split[2], split[split.length - 1]);
             }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        
+
         boolean i = true;
-        
-        
+
         for (Map.Entry ele : loginfo.entrySet()) {
             if (a == 'n') {
                 if (str.equals(ele.getKey())) {
@@ -75,7 +82,7 @@ public class Assignment {
                 } else {
                     return false;
                 }
-            }else if (a == 'p') {
+            } else if (a == 'p') {
                 if (str.equals(ele.getValue())) {
                     i = true;
                 } else {
@@ -83,17 +90,17 @@ public class Assignment {
                 }
             }
         }
-        
+
         return i;
+
     }
 
-    
 }
 
+class sortByID implements Comparator<Problem> {
 
-class sortByID implements Comparator<Problem>{
     @Override
     public int compare(Problem o1, Problem o2) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    }
+}
