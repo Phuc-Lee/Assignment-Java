@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Assignment {
 
@@ -27,11 +25,10 @@ public class Assignment {
                 problem.add(new Problem());
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Assignment.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("File not found");;
         }
 
         if (logIn) {
-            System.out.println("hello");
 
         }
 
@@ -42,65 +39,49 @@ public class Assignment {
 
         System.out.print("User name(Email): ");
         String name = sc.nextLine();
-        boolean checkName = check(name, 'n');
         System.out.print("Password: ");
         String pass = sc.nextLine();
-        boolean checkPass = check(pass, 'p');
+        boolean check = check(name, pass);
 
-        if (checkName && checkPass) {
+        if (check) {
             System.out.println("Welcome back!");
             return true;
-        } else if (checkName == false && checkPass == false) {
-            System.out.println("Account doesn't exist");
-            logIn();
-        } else if (checkName && checkPass == false) {
-            System.out.println("Wrong password");
+        } else {
+            System.out.println("Check email or password!");
             logIn();
         }
-
         return false;
     }
 
-    static boolean check(String str, char a) {
+    static boolean check(String name, String pass) {
         HashMap<String, String> loginfo = new HashMap<>();
         try {
             Scanner sc1 = new Scanner(new File("contestant.dat"));
             while (sc1.hasNext()) {
-                String[] split = sc1.next().split("~");
+                String[] split = sc1.nextLine().split("~");
+//                System.out.println(split.length);
                 loginfo.put(split[2], split[split.length - 1]);
             }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
 
-        boolean i = true;
-
         for (Map.Entry ele : loginfo.entrySet()) {
-            if (a == 'n') {
-                if (str.equals(ele.getKey())) {
-                    i = true;
-                } else {
-                    i = false;
+            if (name.equals(ele.getKey())) {
+                if(pass.equals(ele.getValue())){
+                    return true;
                 }
-            } else if (a == 'p') {
-                if (str.equals(ele.getValue())) {
-                    i = true;
-                } else {
-                    i = false;
-                }
+                
             }
         }
-
-        return i;
-
+        return false;
     }
-
 }
 
 class sortByID implements Comparator<Problem> {
 
     @Override
     public int compare(Problem o1, Problem o2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 1;
     }
 }
