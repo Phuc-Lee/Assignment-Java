@@ -11,9 +11,6 @@ import java.util.TreeSet;
 public class Assignment {
 
     public static void main(String[] args) {
-//        int id = (int)Math.floor((Math.random()*899999)+100000);
-//        String ID = "HE" + Double.toString(id);
-//        Contestant phuc = new Contestant("lehoangphuc", ID, "lehoangphuc@fpt.edu.vn", "1234567890", 1, "1234");
 
         boolean logIn = logIn();
 
@@ -29,7 +26,6 @@ public class Assignment {
         }
 
         if (logIn) {
-            
 
         }
 
@@ -40,22 +36,21 @@ public class Assignment {
 
         System.out.print("User name(Email): ");
         String name = sc.nextLine();
-        boolean checkName = check(name, 'n');
         System.out.print("Password: ");
         String pass = sc.nextLine();
-        boolean checkPass = check(pass, 'p');
+        boolean check = check(name, pass);
 
-        if (checkName && checkPass) {
+        if (check) {
             System.out.println("Welcome back!");
             return true;
-        }else {
+        } else {
             System.out.println("Check email or password!");
             logIn();
         }
         return false;
     }
 
-    static boolean check(String str, char a) {
+    static boolean check(String name, String pass) {
         HashMap<String, String> loginfo = new HashMap<>();
         try {
             Scanner sc1 = new Scanner(new File("contestant.dat"));
@@ -68,26 +63,15 @@ public class Assignment {
             System.out.println(e.getMessage());
         }
 
-        boolean i = true;
-
         for (Map.Entry ele : loginfo.entrySet()) {
-            if (a == 'n') {
-                if (str.equals(ele.getKey())) {
-                    i = true;
-                } else {
-                    i = false;
-                }
-            } else if (a == 'p') {
-                if (str.equals(ele.getValue())) {
-                    i = true;
-                } else {
-                    i = false;
+            if (name.equals(ele.getKey())) {
+                if (pass.equals(ele.getValue())) {
+                    return true;
                 }
             }
         }
 
-        return i;
-
+        return false;
     }
 
 }
