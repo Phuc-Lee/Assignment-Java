@@ -29,6 +29,7 @@ public class Assignment {
         }
 
         if (logIn) {
+            
 
         }
 
@@ -39,21 +40,22 @@ public class Assignment {
 
         System.out.print("User name(Email): ");
         String name = sc.nextLine();
+        boolean checkName = check(name, 'n');
         System.out.print("Password: ");
         String pass = sc.nextLine();
-        boolean check = check(name, pass);
+        boolean checkPass = check(pass, 'p');
 
-        if (check) {
+        if (checkName && checkPass) {
             System.out.println("Welcome back!");
             return true;
-        } else {
+        }else {
             System.out.println("Check email or password!");
             logIn();
         }
         return false;
     }
 
-    static boolean check(String name, String pass) {
+    static boolean check(String str, char a) {
         HashMap<String, String> loginfo = new HashMap<>();
         try {
             Scanner sc1 = new Scanner(new File("contestant.dat"));
@@ -66,16 +68,28 @@ public class Assignment {
             System.out.println(e.getMessage());
         }
 
+        boolean i = true;
+
         for (Map.Entry ele : loginfo.entrySet()) {
-            if (name.equals(ele.getKey())) {
-                if(pass.equals(ele.getValue())){
-                    return true;
+            if (a == 'n') {
+                if (str.equals(ele.getKey())) {
+                    i = true;
+                } else {
+                    i = false;
                 }
-                
+            } else if (a == 'p') {
+                if (str.equals(ele.getValue())) {
+                    i = true;
+                } else {
+                    i = false;
+                }
             }
         }
-        return false;
+
+        return i;
+
     }
+
 }
 
 class sortByID implements Comparator<Problem> {
