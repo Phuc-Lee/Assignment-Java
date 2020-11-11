@@ -1,8 +1,13 @@
 package assignment;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 public class Contestant {
@@ -84,7 +89,7 @@ public class Contestant {
         return "Contestant{" + "name=" + name + ", id=" + id + ", email=" + email + ", mobilephone=" + mobilephone + ", rank=" + rank + ", password=" + password + '}';
     }
 
-    public void changeInfor() throws FileNotFoundException, IOException {
+    public void changeInfor(Contestant i) throws FileNotFoundException, IOException {
 //        FileInputStream fis = new FileInputStream("Contestant.dat");
 //        ObjectInputStream ois = new ObjectInputStream(fis);
 //        while(true){
@@ -100,18 +105,18 @@ public class Contestant {
         
         System.out.print("New name: ");
         String name1 = sc.nextLine(); 
-        setName(name1) ;
+        i.setName(name1) ;
         
         System.out.print("New email: ");
         String mail = sc.nextLine();
-        setEmail(mail) ;
+        i.setEmail(mail) ;
 
         System.out.print("New mobilePhone: ");
         String phone;
         do{
             phone = sc.nextLine();
         }while(!checkValidation(phone, 'h'));
-        setMobilephone(phone);
+        i.setMobilephone(phone);
 
         System.out.print("New password (must be longer than 8 charaters): ");
         String pass;
@@ -119,7 +124,15 @@ public class Contestant {
             pass = sc.nextLine();
         }while(!checkValidation(pass,'a'));
         setPassword(pass);
-        
+        FileWriter writer = new FileWriter("contestant.dat");
+        try {
+
+                writer.write(i.getName() +"~" + i.getId() + "~" + i.getEmail() + "~" + i.getMobilephone() + "~" + i.getRank() + "~" + i.getPassword() + "\n");
+                writer.flush();
+                
+            } catch (IOException ex) {
+                System.out.println("File does not exist");
+            }
         
 //        try {
 //            File f = new File("contestant.dat");
