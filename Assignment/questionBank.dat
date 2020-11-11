@@ -1,3 +1,25 @@
-de2~geometry~phuc le~22/11/2020~tinh tong~1.5~tinh tong cac so~cho mot day cac chu so, tinh tong cac so do
-de1~geometry~phuc le~22/11/2020~tinh tong~1.5~tinh tong cac so~cho mot day cac chu so, tinh tong cac so do
-de1~calculus~phuc le~22/11/2020~tinh tong~1.5~tinh tong cac so~cho mot day cac chu so, tinh tong cac so do
+QS646~Geometry~phuc le~22/11/2020~tinh tong~1.5~tinh tong cac so~cho mot day cac chu so, tinh tong cac so do
+QS203~Geometry~phuc le~22/11/2020~tinh~1.5~tinh hieu cac so~cho mot day cac chu so, tinh hieu cac so do
+QS234~Galculus~phuc le~22/11/2020~tinh~1.5~tinh tich cac so~cho mot day cac chu so, tinh tich cac so do
+QS164~Greedy~Le Tra~21/10/2019~toan tham lam~2.0~tinh so xu it nhat~tinh so xu it nhat sao cho tong = 999$
+QS436~Graph~Trinh Nhi~22/11/2020~tinh chu vi~1.5~tinh chu vi hinh chu nhat~tinh chu vi hinh chu nhat co chieu dai = 5cm, chieu rong = 3cm
+QS631~Dynamic~Do Phong~17/10/2000~tim day so~2.5~tim so trong day so~tim so X trong mang n phan tu sao cho X = input
+QS566~Dynamic~Nguyen Minh~19/9/1999~tim so~0.5~tim so trong day so~tim so X trong mang n phan tu sao cho X/99
+QS833~Graph~Phan Tam~20/1/2014~tinh y~1.5~tinh y voi khi biet x~tinh y khi x = 2 ,y = (x^4)^logx
+QS680~Geometry~Pham Ha~15/3/2004~tinh dien tich~3.2~tinh dien tich hinh tron~tinh dien tich hinh tron co ban kinh = 5cm
+QS736~Calculus~Ho Tien~9/7/1999~tinh~1.5~tim S~Tim S=1+2+3+...+100
+QS624~Greedy~Nguyen Ha~29/2/2016~toan tham lam~3.0~tinh so xu it nhat~tinh so xu it nhat sao cho tong = 1048$
+QS590~Greedy~Le Minh~6/5/2015~toan tham lam~1.25~tinh so bao gao it nhat~tinh so bao gao it nhat sao cho tong = 49kg
+QS217~Calculus~Trinh Trung~5/7/2020~tim x~1.2~tim x khi biet phuong trinh~tinh x khi biet x^2 - x^1 - 1 = 0
+QS233~Graph~Dinh Vu~1/1/2011~tinh ban kinh~1.3~tinh ban kinh mot hinh tron~tinh hinh tron co chu vi = 10cm
+QS881~Greedy~Dinh Tra~1/3/2003~toan tham lam~5.0~tinh so xu it nhat~tinh so xu it nhat sao cho tong = 148$
+QS269~Graph~Phan Trung~3/8/2009~tinh do dai~0.2~tinh do dai AB~tinh do dai AB biet A(1,2,3) , B(-2,0,-8)
+QS607~Dynamic~Nguyen Ha~5/6/2019~Tim so~0.3~tim so trong day so~tim so X trong mang n phan tu sao cho X la so hoan hao
+QS252~Calculus~Do Trang~6/12/2001~tinh~0.4~tinh~tinh toan~S=1!+2!+3!+...+100!
+QS579~Calculus~Ho Hieu~20/11/2003~tinh~0.1~tinh~tinh toan~S=1-2+3-...-100
+QS840~Geometry~Hoang Ha~10/07/2001~tinh do dai~1.6~tinh khoang cach AB~tinh khoang cach AB biet A(1,4,6), B(9,0,-8)
+QS192~Geometry~Bui Vu~16/2/2002~ve hinh~10.0~ve mot hinh cau~ve hinh cau co ban kinh = 5cm
+QS317~Dynamic~Phan Minh~20/3/2005~tim so~8.2~tim so trong day so~tim so X trong mang n phan tu sao cho X la so lon nhat
+QS722~Dynamic~Nguyen Minh~19/5/2007~tim so~9.0~tim so trong day so~tim so X trong mang n phan tu sao cho X la so nguyen to 
+QS593~Greedy~Ho Tien~31/5/2007~toan tham lam~1.5~tinh so bao gao it nhat~tinh so bao gao it nhat sao cho tong = 97kg
+QS184~Graph~Nguyen Lam~6/11/2013~ve hinh~8.0~ve mot hinh tron~ve hinh tron co ban kinh = 5cm
