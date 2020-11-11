@@ -15,6 +15,15 @@ public class Assignment {
         TreeSet<Problem> problem = loadProblem();
         boolean logIn = logIn();
         TreeSet<Contestant> contestant = loadContestant();
+        
+        for (Contestant e : contestant) {
+            if(e.getEmail().equals("thuytqen133440@fpt.edu.vn")){
+                System.out.println(e);
+            }else
+            {System.out.println("1");}
+        }
+            
+        
 
 //        if (logIn) {
 //            Iterator<Problem> iter = problem.iterator();
@@ -58,7 +67,7 @@ public class Assignment {
         }
     }
 
-    static TreeSet<Contestant> loadContestant() {
+    public static TreeSet<Contestant> loadContestant() {
         TreeSet<Contestant> contestant = new TreeSet<>(new sortByRoll());
         try {
             Scanner sc = new Scanner(new File("contestant.dat"));

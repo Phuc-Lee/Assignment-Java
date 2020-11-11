@@ -1,5 +1,12 @@
 package assignment;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 public class Contestant {
@@ -81,13 +88,23 @@ public class Contestant {
         return "Contestant{" + "name=" + name + ", id=" + id + ", email=" + email + ", mobilephone=" + mobilephone + ", rank=" + rank + ", password=" + password + '}';
     }
 
-    public void changeInfor() {
+    public void changeInfor() throws FileNotFoundException, IOException {
+//        FileInputStream fis = new FileInputStream("Contestant.dat");
+//        ObjectInputStream ois = new ObjectInputStream(fis);
+//        while(true){
+//        try {
+//            Contestant pX = (Contestant)ois.readObject();
+//            if(pX.getEmail().equals(o.getEmail())){}
+//        } catch (IOException | ClassNotFoundException e ) {
+//        }
+//        }
+
         System.out.println("Change contestant's information ");
         Scanner sc = new Scanner(System.in);
         
         System.out.print("New name: ");
-        String name = sc.nextLine(); 
-        setName(name) ;
+        String name1 = sc.nextLine(); 
+        setName(name1) ;
         
         System.out.print("New email: ");
         String mail = sc.nextLine();
@@ -106,6 +123,18 @@ public class Contestant {
             pass = sc.nextLine();
         }while(!checkValidation(pass,'a'));
         setPassword(pass);
+        
+        
+//        try {
+//            File f = new File("contestant.dat");
+//            FileOutputStream fos = new FileOutputStream(f);
+//            ObjectOutputStream oos = new ObjectOutputStream(fos);
+////            oos.writeObject(p1);
+//            oos.flush();
+//            oos.close();
+//            fos.close();
+//        } catch (IOException e) {
+//        }
     }
     
     private boolean checkValidation(String str, char type){
