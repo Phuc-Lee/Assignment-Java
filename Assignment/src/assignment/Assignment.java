@@ -2,6 +2,8 @@ package assignment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,20 +12,22 @@ import java.util.Scanner;
 import java.util.TreeSet;
 
 public class Assignment {
+
     static TreeSet<Problem> problem;
     static TreeSet<Contestant> contestant;
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws IOException {
         problem = loadProblem();
         boolean logIn = logIn();
         loadContestant();
 
-        if (logIn) {
-            System.out.println("\n");
-            Iterator<Contestant> iter1 = contestant.iterator();
-            while (iter1.hasNext()) {
-                System.out.println(iter1.next());
-            }
-        }
+//        if (logIn) {
+//            System.out.println("\n");
+//            Iterator<Contestant> iter1 = contestant.iterator();
+//            while (iter1.hasNext()) {
+//                System.out.println(iter1.next());
+//            }
+//        }
         Scanner sc = new Scanner(System.in);
         char choice;
 
@@ -40,12 +44,24 @@ public class Assignment {
             System.out.println("\t8. Save/Load/Export");
             choice = sc.next().charAt(0);
             switch (choice) {
-                case '1': 
-                    for(Contestant i: contestant){
-                        if(i.getEmail().equals(userName)){
+                case '1':
+                    FileWriter writer = new FileWriter("contestan.dat");
+                    for (Contestant i : contestant) {
+                        if (i.getEmail().equals(userName)) {
                             i.changeInfor();
+                            contestant.add(i);
+                        }}
+                    for (Contestant i : contestant) {
+  
+                        try {
+                            writer.write(i.getName()+ "~" + i.getId() + "~" + i.getEmail() + "~" + i.getMobilephone() 
+                                    + "~"+ Integer.toString(i.getRank()) + "~" + i.getPassword()+ "\n");
+                            writer.flush();
+                        } catch (IOException ex) {
+                            System.out.println("File does not exist");
                         }
                     }
+                    writer.close();
                     break;
                 case '2':
                 case '3':
@@ -55,12 +71,14 @@ public class Assignment {
                 case '5':
                 case '6':
                 case '7':
-                case '8': 
+                case '8':
             }
-            if(choice == '0') break;
+            if (choice == '0') {
+                break;
+            }
         }
     }
-    
+
     static void listAllProb(TreeSet<Problem> a) {
         Iterator<Problem> iter = a.iterator();
         while (iter.hasNext()) {
@@ -68,7 +86,7 @@ public class Assignment {
         }
         System.out.println("\n");
     }
-    
+
     static void loadContestant() {
         contestant = new TreeSet<>(new sortByRoll());
         try {
@@ -95,8 +113,9 @@ public class Assignment {
         }
         return problem;
     }
-    
+
     static String userName;
+
     static boolean logIn() {
         Scanner sc = new Scanner(System.in);
 
