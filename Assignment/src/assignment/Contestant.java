@@ -19,7 +19,7 @@ public class Contestant {
         this.mobilephone = "Unknown";
     }
 
-    public Contestant(String name, String id, String email, String mobilephone, int rank, String password) {
+    public Contestant(String name, String id, String email, String mobilephone, int rank, String Password) {
         this.name = name;
         this.id = id;
         this.email = email;
@@ -80,7 +80,7 @@ public class Contestant {
     public String toString() {
         return "Contestant{" + "name=" + name + ", id=" + id + ", email=" + email + ", mobilephone=" + mobilephone + ", rank=" + rank + ", password=" + password + '}';
     }
-    
+
     public void changeInfor() {
         System.out.println("Change contestant's information ");
         Scanner sc = new Scanner(System.in);
@@ -117,6 +117,7 @@ public class Contestant {
             if(str.length() != 10){
                 return false;
             }
+            
             try{
                 int intForm = Integer.parseInt(str);
             }catch(NumberFormatException e){
