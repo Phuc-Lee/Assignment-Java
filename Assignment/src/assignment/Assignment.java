@@ -1,7 +1,5 @@
 package assignment;
 
-<<<<<<< Updated upstream
-=======
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Comparator;
@@ -11,26 +9,24 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeSet;
 
->>>>>>> Stashed changes
 public class Assignment {
+
     public static void main(String[] args) {
-<<<<<<< Updated upstream
-=======
         TreeSet<Problem> problem = loadProblem();
         boolean logIn = logIn();
         TreeSet<Contestant> contestant = loadContestant();
 
-        if (logIn) {
-            Iterator<Problem> iter = problem.iterator();
-            while (iter.hasNext()) {
-                System.out.println(iter.next());
-            }
-            System.out.println("\n");
-            Iterator<Contestant> iter1 = contestant.iterator();
-            while (iter1.hasNext()) {
-                System.out.println(iter1.next());
-            }
-        }
+//        if (logIn) {
+//            Iterator<Problem> iter = problem.iterator();
+//            while (iter.hasNext()) {
+//                System.out.println(iter.next());
+//            }
+//            System.out.println("\n");
+//            Iterator<Contestant> iter1 = contestant.iterator();
+//            while (iter1.hasNext()) {
+//                System.out.println(iter1.next());
+//            }
+//        }
         Scanner sc = new Scanner(System.in);
         char choice;
 
@@ -160,8 +156,13 @@ class sortByRoll implements Comparator<Contestant> {
 }
 
 class sortByCat implements Comparator<Problem> {
->>>>>>> Stashed changes
 
+    @Override
+    public int compare(Problem o1, Problem o2) {
+        if (o1.getCategory().compareTo(o2.getCategory()) == 0) {
+            return o1.getProblemID().compareTo(o2.getProblemID());
+        } else {
+            return o1.getCategory().compareTo(o2.getCategory());
+        }
     }
-    
 }
