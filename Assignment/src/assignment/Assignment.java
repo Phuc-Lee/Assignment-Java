@@ -25,8 +25,23 @@ public class Assignment {
             System.out.println("File not found");;
         }
 
-        if (logIn) {
-
+        while (logIn) {
+            System.out.println("What do you want ?");
+            System.out.println("1.Change your infomation ");
+            System.out.println("2.Add a Question ");
+            System.out.println("3.Change Question's infomation ");
+            System.out.println("4.Show list Question ");
+            System.out.println("5.Generate a Contest ");
+            System.out.println("6.Print Contest");
+            System.out.println("7.Sort list Question ");
+            System.out.println("8.Save/Load/Export");
+            int choice;
+            Scanner sc = new Scanner(System.in);
+            choice = sc.nextInt();
+            switch (choice) {
+                case '1': {
+                }
+            }
         }
 
     }

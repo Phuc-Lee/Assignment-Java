@@ -1,5 +1,8 @@
 package assignment;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Contestant {
@@ -19,7 +22,7 @@ public class Contestant {
         this.mobilephone = "Unknown";
     }
 
-    public Contestant(String name, String id, String email, String mobilephone, int rank, String Password) {
+    public Contestant(String name, String id, String email, String mobilephone, int rank, String password) {
         this.name = name;
         this.id = id;
         this.email = email;
@@ -76,13 +79,9 @@ public class Contestant {
         this.password = password;
     }
 
-    public void changeInfor() {
+    public void changeInfor() throws IOException {
         System.out.println("Change contestant's information ");
         Scanner sc = new Scanner(System.in);
-        
-        System.out.print("Name: ");
-        String name = sc.nextLine(); 
-        setName(name) ;
         
         System.out.print("Email: ");
         String mail = sc.nextLine();
@@ -101,6 +100,17 @@ public class Contestant {
             pass = sc.nextLine();
         }while(!checkValidation(pass,'a'));
         setPassword(pass);
+        
+        FileWriter writer = new FileWriter(new File("contestant.dat"));
+        try {
+
+//                writer.write();
+                writer.flush();
+                
+            } catch (IOException ex) {
+                System.out.println("File does not exist");
+            }
+        writer.close();
     }
     
     private boolean checkValidation(String str, char type){
