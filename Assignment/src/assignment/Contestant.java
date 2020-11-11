@@ -1,8 +1,5 @@
 package assignment;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Contestant {
@@ -79,38 +76,36 @@ public class Contestant {
         this.password = password;
     }
 
-    public void changeInfor() throws IOException {
+    @Override
+    public String toString() {
+        return "Contestant{" + "name=" + name + ", id=" + id + ", email=" + email + ", mobilephone=" + mobilephone + ", rank=" + rank + ", password=" + password + '}';
+    }
+    
+    public void changeInfor() {
         System.out.println("Change contestant's information ");
         Scanner sc = new Scanner(System.in);
         
-        System.out.print("Email: ");
+        System.out.print("New name: ");
+        String name = sc.nextLine(); 
+        setName(name) ;
+        
+        System.out.print("New email: ");
         String mail = sc.nextLine();
         setEmail(mail) ;
 
-        System.out.print("MobilePhone: ");
+        System.out.print("New mobilePhone: ");
         String phone;
         do{
             phone = sc.nextLine();
         }while(!checkValidation(phone, 'h'));
         setMobilephone(phone);
 
-        System.out.print("Password (must be longer than 8 charaters): ");
+        System.out.print("New password (must be longer than 8 charaters): ");
         String pass;
         do{
             pass = sc.nextLine();
         }while(!checkValidation(pass,'a'));
         setPassword(pass);
-        
-        FileWriter writer = new FileWriter(new File("contestant.dat"));
-        try {
-
-//                writer.write();
-                writer.flush();
-                
-            } catch (IOException ex) {
-                System.out.println("File does not exist");
-            }
-        writer.close();
     }
     
     private boolean checkValidation(String str, char type){
