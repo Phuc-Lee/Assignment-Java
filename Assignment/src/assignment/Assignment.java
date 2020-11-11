@@ -64,6 +64,7 @@ public class Assignment {
                     writer.close();
                     break;
                 case '2':
+                    addNewQuestion();
                 case '3':
                 case '4':
                     listAllProb(problem);
@@ -156,6 +157,12 @@ public class Assignment {
         }
 
         return false;
+    }
+
+    private static void addNewQuestion() {
+        scanner
+        
+        problem.add(new Problem());
     }
 
 }
