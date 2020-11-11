@@ -3,7 +3,10 @@ package assignment;
 import java.io.File;
 import java.io.FileNotFoundException;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+>>>>>>> parent of 81b3f99... test change info
 =======
 >>>>>>> parent of 81b3f99... test change info
 import java.util.Comparator;
@@ -17,7 +20,11 @@ public class Assignment {
     static TreeSet<Problem> problem;
     static TreeSet<Contestant> contestant;
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static void main(String[] args) throws IOException {
+=======
+    public static void main(String[] args) {
+>>>>>>> parent of 81b3f99... test change info
 =======
     public static void main(String[] args) {
 >>>>>>> parent of 81b3f99... test change info
@@ -52,7 +59,11 @@ public class Assignment {
                     for(Contestant i: contestant){
                         if(i.getEmail().equals(userName)){
 <<<<<<< HEAD
+<<<<<<< HEAD
                             i.changeInfor(i);
+=======
+                            i.changeInfor();
+>>>>>>> parent of 81b3f99... test change info
 =======
                             i.changeInfor();
 >>>>>>> parent of 81b3f99... test change info
