@@ -19,7 +19,7 @@ public class Contestant {
         this.mobilephone = "Unknown";
     }
 
-    public Contestant(String name, String id, String email, String mobilephone, int rank, String password) {
+    public Contestant(String name, String id, String email, String mobilephone, int rank, String Password) {
         this.name = name;
         this.id = id;
         this.email = email;
@@ -76,31 +76,26 @@ public class Contestant {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "Contestant{" + "name=" + name + ", id=" + id + ", email=" + email + ", mobilephone=" + mobilephone + ", rank=" + rank + ", password=" + password + '}';
-    }
-    
     public void changeInfor() {
         System.out.println("Change contestant's information ");
         Scanner sc = new Scanner(System.in);
         
-        System.out.print("New name: ");
+        System.out.print("Name: ");
         String name = sc.nextLine(); 
         setName(name) ;
         
-        System.out.print("New email: ");
+        System.out.print("Email: ");
         String mail = sc.nextLine();
         setEmail(mail) ;
 
-        System.out.print("New mobilePhone: ");
+        System.out.print("MobilePhone: ");
         String phone;
         do{
             phone = sc.nextLine();
         }while(!checkValidation(phone, 'h'));
         setMobilephone(phone);
 
-        System.out.print("New password (must be longer than 8 charaters): ");
+        System.out.print("Password (must be longer than 8 charaters): ");
         String pass;
         do{
             pass = sc.nextLine();

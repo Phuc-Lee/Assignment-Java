@@ -4,60 +4,31 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Assignment {
 
     public static void main(String[] args) {
-        TreeSet<Problem> problem = loadProblem();
+
         boolean logIn = logIn();
-        TreeSet<Contestant> contestant = loadContestant();
 
-        if (logIn) {
-            Iterator<Problem> iter = problem.iterator();
-            while (iter.hasNext()) {
-                System.out.println(iter.next());
-            }
-            System.out.println("\n");
-            Iterator<Contestant> iter1 = contestant.iterator();
-            while (iter1.hasNext()) {
-                System.out.println(iter1.next());
-            }
-        }
-
-    }
-
-    static TreeSet<Contestant> loadContestant() {
-        TreeSet<Contestant> contestant = new TreeSet<>(new sortByRoll());
-        try {
-            Scanner sc = new Scanner(new File("contestant.dat"));
-            while(sc.hasNext()){
-                String[] split = sc.nextLine().split("~");
-                contestant.add(new Contestant(split[0],split[1],split[2],split[3],Integer.parseInt(split[4]),split[5]));
-            }
-        } catch (FileNotFoundException ex) {
-            System.out.println("File not found");
-        }
-        return contestant;
-    }
-
-    static TreeSet<Problem> loadProblem() {
-        TreeSet<Problem> problem = new TreeSet<>(new sortByCat());
+        TreeSet<Problem> problem = new TreeSet<>(new sortByID());
         try {
             Scanner sc = new Scanner(new File("questionBank.dat"));
             while (sc.hasNext()) {
-                String[] split = sc.nextLine().split("~");
-                problem.add(new Problem(split[0], split[1], split[2], split[3], split[4], Double.parseDouble(split[5]), split[6], split[7]));
+                String[] split = sc.next().split("~");
+                problem.add(new Problem());
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("File not found");
+            System.out.println("File not found");;
         }
-        return problem;
+
+        if (logIn) {
+
+        }
+
     }
 
     static boolean logIn() {
@@ -102,41 +73,12 @@ public class Assignment {
 
         return false;
     }
-
 }
 
-class sortByRoll implements Comparator<Contestant> {
-
-    @Override
-    public int compare(Contestant o1, Contestant o2) {
-        String[] name1 = o1.getName().split(" ");
-        String lastName1 = name1[0] + " " + name1[1];
-        String[] name2 = o2.getName().split(" ");
-        String lastName2 = name2[0] + " " + name2[1];
-
-        if (o1.getId().compareTo(o2.getId()) != 0) {
-            if (name1[2].compareTo(name2[2]) == 0) {
-                if (lastName1.compareTo(lastName2) == 0) {
-                    return o1.getId().compareTo(o2.getId());
-                }else{
-                    return lastName1.compareTo(lastName2);
-                }
-            }else{
-                return name1[2].compareTo(name2[2]);
-            }
-        }
-        return 0;
-    }
-}
-
-class sortByCat implements Comparator<Problem> {
+class sortByID implements Comparator<Problem> {
 
     @Override
     public int compare(Problem o1, Problem o2) {
-        if (o1.getCategory().compareTo(o2.getCategory()) == 0) {
-            return o1.getProblemID().compareTo(o2.getProblemID());
-        } else {
-            return o1.getCategory().compareTo(o2.getCategory());
-        }
+        return 1;
     }
 }

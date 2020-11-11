@@ -8,20 +8,19 @@ import java.util.Scanner;
 public class Problem {
 
     private String problemID;
-    private String category;
-    private String author;
     private String date;
     private String name;
-    private double mark_weight;
     private String short_decrip;
     private String long_decrip;
-    
+    private double mark_weight;
+    private int category;
+    private String author;
 //    private double total_mark;
 
     public Problem() {
     }
 
-    public Problem(String problemID, String category, String author, String date, String name, double mark_weight, String short_decrip, String long_decrip) {
+    public Problem(String problemID, String date, String name, String short_decrip, String long_decrip, double mark_weight, int category, String author) {
         this.problemID = problemID;
         this.date = date;
         this.name = name;
@@ -30,6 +29,14 @@ public class Problem {
         this.mark_weight = mark_weight;
         this.category = category;
         this.author = author;
+    }
+
+    public String getProblem() {
+        return problemID;
+    }
+
+    public void setProblem(String problem) {
+        this.problemID = problem;
     }
 
     public String getDate() {
@@ -72,11 +79,11 @@ public class Problem {
         this.mark_weight = mark_weight;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 
@@ -108,10 +115,10 @@ public class Problem {
         Collections.sort(qs, new Comparator<Problem>() {
             @Override
             public int compare(Problem o1, Problem o2) {
-                if (o1.getCategory().compareTo(o2.getCategory()) > 0) {
+                if (o1.getCategory() > o2.getCategory()) {
                     return 1;
                 }
-                if (o1.getCategory().compareTo(o2.getCategory()) < 0) {
+                if (o1.getCategory() < o2.getCategory()) {
                     return -1;
                 } else {
                     if (o1.getProblemID().compareToIgnoreCase(o2.getProblemID()) > 1) {
@@ -128,12 +135,10 @@ public class Problem {
 //    public void setTotal_mark(double total_mark) {
 //        this.total_mark = total_mark;
 //    }
-
     @Override
     public String toString() {
-        return "Problem{" + "problemID=" + problemID + ", category=" + category + ", author=" + author + ", date=" + date + ", name=" + name + ", mark_weight=" + mark_weight + ", short_decrip=" + short_decrip + ", long_decrip=" + long_decrip + '}';
+        return "Problem{" + "problemID=" + problemID + ", date=" + date + ", name=" + name + ", short_decrip=" + short_decrip + ", long_decrip=" + long_decrip + ", mark_weight=" + mark_weight + ", category=" + category + ", author=" + author + '}';
     }
-    
 
     public void updateQues() {
         Scanner sc = new Scanner(System.in);
