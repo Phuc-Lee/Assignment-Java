@@ -2,6 +2,7 @@ package assignment;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,9 +16,8 @@ public class Problem {
     private double mark_weight;
     private String short_decrip;
     private String long_decrip;
-    
-//    private double total_mark;
 
+//    private double total_mark;
     public Problem() {
     }
 
@@ -128,32 +128,58 @@ public class Problem {
 //    public void setTotal_mark(double total_mark) {
 //        this.total_mark = total_mark;
 //    }
-
     @Override
     public String toString() {
-        return "Problem{" + "problemID=" + problemID + ", category=" + category + ", author=" + author + ", date=" + date + ", name=" + name + ", mark_weight=" + mark_weight + ", short_decrip=" + short_decrip + ", long_decrip=" + long_decrip + '}';
+        return "problemID=" + problemID + ", category=" + category + ", author=" + author + ", date=" + date + ", name=" + name + ", mark_weight=" + mark_weight + ", short_decrip=" + short_decrip + ", long_decrip=" + long_decrip + "\n";
     }
-    
 
-    public void updateQues() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Question's Date (DD/MM/YY) : ");
-        setDate(sc.nextLine());
+    public void addQues() {
+        Date date = new Date();
+        System.out.println("Question's Date : " + date.toString());
+
         Scanner sc1 = new Scanner(System.in);
-        System.out.println("Question's Name : ");
+        System.out.print("Question's Name : ");
         setName(sc1.nextLine());
-        Scanner sc2 = new Scanner(System.in);
-        System.out.println("Short decription : ");
-        setShort_decrip(sc2.nextLine());
-        Scanner sc3 = new Scanner(System.in);
-        System.out.println("Long decription : ");
-        setLong_decrip(sc3.nextLine());
-        Scanner sc4 = new Scanner(System.in);
-        System.out.println("Markweight : ");
-        setMark_weight(sc4.nextDouble());
-        Scanner sc5 = new Scanner(System.in);
 
-        Scanner sc6 = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Category : ");
+        setName(sc.nextLine());
+
+        Scanner sc2 = new Scanner(System.in);
+        System.out.print("Short decription : ");
+        setShort_decrip(sc2.nextLine());
+        
+        Scanner sc3 = new Scanner(System.in);
+        System.out.print("Long decription : ");
+        setLong_decrip(sc3.nextLine());
+        
+        Scanner sc4 = new Scanner(System.in);
+        System.out.print("Markweight : ");
+        setMark_weight(sc4.nextDouble());
+        
+        Scanner sc5 = new Scanner(System.in);
+        System.out.print("Author : ");
+        setAuthor(sc5.nextLine());
     }
+
+//    public void updateQues() {
+//        Date date = new Date();
+//        System.out.print("Question's Date : " + date.toString());
+//        Scanner sc1 = new Scanner(System.in);
+//        System.out.print("Question's Name : ");
+//        setName(sc1.nextLine());
+//        Scanner sc2 = new Scanner(System.in);
+//        System.out.print("Short decription : ");
+//        setShort_decrip(sc2.nextLine());
+//        Scanner sc3 = new Scanner(System.in);
+//        System.out.print("Long decription : ");
+//        setLong_decrip(sc3.nextLine());
+//        Scanner sc4 = new Scanner(System.in);
+//        System.out.print("Markweight : ");
+//        setMark_weight(sc4.nextDouble());
+//        Scanner sc5 = new Scanner(System.in);
+//        System.out.print("Author : ");
+//        setAuthor(sc5.nextLine());
+//    }
 
 }

@@ -45,34 +45,72 @@ public class Assignment {
             choice = sc.next().charAt(0);
             switch (choice) {
                 case '1':
-                    FileWriter writer = new FileWriter("contestan.dat");
+                    FileWriter writerCT = new FileWriter("contestan.dat");
                     for (Contestant i : contestant) {
                         if (i.getEmail().equals(userName)) {
                             i.changeInfor();
                             contestant.add(i);
-                        }}
+                        }
+                    }
                     for (Contestant i : contestant) {
-  
+
                         try {
-                            writer.write(i.getName()+ "~" + i.getId() + "~" + i.getEmail() + "~" + i.getMobilephone() 
-                                    + "~"+ Integer.toString(i.getRank()) + "~" + i.getPassword()+ "\n");
-                            writer.flush();
+                            writerCT.write(i.getName() + "~" + i.getId() + "~" + i.getEmail() + "~" + i.getMobilephone()
+                                    + "~" + Integer.toString(i.getRank()) + "~" + i.getPassword() + "\n");
+                            writerCT.flush();
                         } catch (IOException ex) {
                             System.out.println("File does not exist");
                         }
                     }
-                    writer.close();
+                    writerCT.close();
                     break;
                 case '2':
-                    addNewQuestion();
+                    FileWriter writerQS = new FileWriter("QBs.dat", true);
+                    Problem e = new Problem();
+                    e.addQues();
+                    try {
+                        writerQS.write(e.getProblemID() + "~" + e.getCategory() + "~" + e.getAuthor() + "~" + e.getDate()
+                                + "~" + e.getName() + "~" + e.getMark_weight() + "~" + e.getShort_decrip() + "~" + e.getLong_decrip() + "\n");
+                        writerQS.flush();
+                    } catch (IOException ex) {
+                        System.out.println("File does not exist");
+                    }
+                    writerQS.close();
+                    break;
                 case '3':
+                    FileWriter writerQS1 = new FileWriter("QBs.dat");
+                    System.out.println("Problem ID : ");
+                    Scanner scan = new Scanner(System.in);
+                    String qsId = scan.nextLine();
+                    for (Problem e1 : problem) {
+                        if(e1.getProblemID().equalsIgnoreCase(qsId)){
+                            problem.remove(e1);
+                            e1.addQues();
+                            problem.add(e1);
+                        }}
+                    for (Problem em1 : problem) {
+                     
+                        try {
+                            writerQS1.write(em1.getProblemID() + "~" + em1.getCategory() + "~" + em1.getAuthor() + "~" + em1.getDate()
+                                    + "~" + em1.getName() + "~" + em1.getMark_weight() + "~" + em1.getShort_decrip() + "~" + em1.getLong_decrip() + "\n");
+                            writerQS1.flush();
+                        } catch (IOException ex) {
+                            System.out.println("File does not exist");
+                        }
+                    }
+                    writerQS1.close();
+                    break;
                 case '4':
                     listAllProb(problem);
                     break;
                 case '5':
+                    break;
                 case '6':
+                    break;
                 case '7':
+                    break;
                 case '8':
+                    break;
             }
             if (choice == '0') {
                 break;
@@ -157,10 +195,6 @@ public class Assignment {
         }
 
         return false;
-    }
-
-    private static void addNewQuestion() {
-
     }
 
 }
