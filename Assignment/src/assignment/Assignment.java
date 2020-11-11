@@ -66,7 +66,10 @@ public class Assignment {
 >>>>>>> parent of 81b3f99... test change info
 =======
                             i.changeInfor();
+<<<<<<< HEAD
 >>>>>>> parent of 81b3f99... test change info
+=======
+>>>>>>> parent of 28b84fb... updated check for change info
                         }
                     }
                     break;

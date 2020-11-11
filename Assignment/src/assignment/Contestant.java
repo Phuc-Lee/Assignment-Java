@@ -1,5 +1,6 @@
 package assignment;
 
+<<<<<<< HEAD
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,6 +15,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+=======
+>>>>>>> parent of 28b84fb... updated check for change info
 import java.util.Scanner;
 
 public class Contestant {
@@ -95,6 +98,7 @@ public class Contestant {
         return "Contestant{" + "name=" + name + ", id=" + id + ", email=" + email + ", mobilephone=" + mobilephone + ", rank=" + rank + ", password=" + password + '}';
     }
 
+<<<<<<< HEAD
     public void changeInfor(Contestant i) throws FileNotFoundException, IOException {
 //        FileInputStream fis = new FileInputStream("Contestant.dat");
 //        ObjectInputStream ois = new ObjectInputStream(fis);
@@ -106,12 +110,20 @@ public class Contestant {
 //        }
 //        }
 
+=======
+    public void changeInfor() {
+>>>>>>> parent of 28b84fb... updated check for change info
         System.out.println("Change contestant's information ");
         Scanner sc = new Scanner(System.in);
         
         System.out.print("New name: ");
+<<<<<<< HEAD
         String name1 = sc.nextLine(); 
         i.setName(name1) ;
+=======
+        String name = sc.nextLine(); 
+        setName(name) ;
+>>>>>>> parent of 28b84fb... updated check for change info
         
         System.out.print("New email: ");
         String mail = sc.nextLine();
@@ -130,6 +142,7 @@ public class Contestant {
             pass = sc.nextLine();
         }while(!checkValidation(pass,'a'));
         setPassword(pass);
+<<<<<<< HEAD
         FileWriter writer = new FileWriter("contestant.dat");
         try {
 
@@ -150,6 +163,8 @@ public class Contestant {
 //            fos.close();
 //        } catch (IOException e) {
 //        }
+=======
+>>>>>>> parent of 28b84fb... updated check for change info
     }
     
     private boolean checkValidation(String str, char type){
