@@ -19,7 +19,7 @@ public class Contestant {
         this.mobilephone = "Unknown";
     }
 
-    public Contestant(String name, String id, String email, String mobilephone, int rank, String password) {
+    public Contestant(String name, String id, String email, String mobilephone, int rank, String Password) {
         this.name = name;
         this.id = id;
         this.email = email;
@@ -76,20 +76,31 @@ public class Contestant {
         this.password = password;
     }
 
+<<<<<<< HEAD
     @Override
     public String toString() {
         return "Contestant{" + "name=" + name + ", id=" + id + ", email=" + email + ", mobilephone=" + mobilephone + ", rank=" + rank + ", password=" + password + '}';
     }
     
+=======
+>>>>>>> parent of 0113588... menu
     public void changeInfor() {
         System.out.println("Change contestant's information ");
         Scanner sc = new Scanner(System.in);
         
+<<<<<<< HEAD
         System.out.print("New name: ");
         String name = sc.nextLine(); 
         setName(name) ;
         
         System.out.print("New email: ");
+=======
+        System.out.print("Name: ");
+        String name = sc.nextLine(); 
+        setName(name) ;
+        
+        System.out.print("Email: ");
+>>>>>>> parent of 0113588... menu
         String mail = sc.nextLine();
         setEmail(mail) ;
 
