@@ -160,9 +160,7 @@ public class Assignment {
     }
 
     private static void addNewQuestion() {
-        scanner
-        
-        problem.add(new Problem());
+
     }
 
 }
