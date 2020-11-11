@@ -18,34 +18,61 @@ public class Assignment {
         boolean logIn = logIn();
         TreeSet<Contestant> contestant = loadContestant();
 
-        if (logIn) {
-            Iterator<Problem> iter = problem.iterator();
-            while (iter.hasNext()) {
-                System.out.println(iter.next());
-            }
-            System.out.println("\n");
-            Iterator<Contestant> iter1 = contestant.iterator();
-            while (iter1.hasNext()) {
-                System.out.println(iter1.next());
-            }
-        }
+//        if (logIn) {
+//            Iterator<Problem> iter = problem.iterator();
+//            while (iter.hasNext()) {
+//                System.out.println(iter.next());
+//            }
+//            System.out.println("\n");
+//            Iterator<Contestant> iter1 = contestant.iterator();
+//            while (iter1.hasNext()) {
+//                System.out.println(iter1.next());
+//            }
+//        }
+        Scanner sc = new Scanner(System.in);
+        char choice;
 
+        while (logIn) {
+            System.out.println("What do you want ?");
+            System.out.println("1.Change your infomation ");
+            System.out.println("2.Add a Question ");
+            System.out.println("3.Change Question's infomation ");
+            System.out.println("4.Show list Question ");
+            System.out.println("5.Generate a Contest ");
+            System.out.println("6.Print Contest");
+            System.out.println("7.Sort list Question ");
+            System.out.println("8.Save/Load/Export");
+            System.out.println("0.Log out");
+            choice = sc.next().charAt(0);
+            switch (choice) {
+                case '1': 
+                    System.out.println("hello");
+                    break;
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8': 
+            }
+            if(choice == '0') break;
+        }
     }
 
     static TreeSet<Contestant> loadContestant() {
         TreeSet<Contestant> contestant = new TreeSet<>(new sortByRoll());
         try {
             Scanner sc = new Scanner(new File("contestant.dat"));
-            while(sc.hasNext()){
+            while (sc.hasNext()) {
                 String[] split = sc.nextLine().split("~");
-                contestant.add(new Contestant(split[0],split[1],split[2],split[3],Integer.parseInt(split[4]),split[5]));
+                contestant.add(new Contestant(split[0], split[1], split[2], split[3], Integer.parseInt(split[4]), split[5]));
             }
         } catch (FileNotFoundException ex) {
             System.out.println("File not found");
         }
         return contestant;
     }
-
 
     static TreeSet<Problem> loadProblem() {
         TreeSet<Problem> problem = new TreeSet<>(new sortByCat());
@@ -57,9 +84,6 @@ public class Assignment {
             }
         } catch (FileNotFoundException ex) {
             System.out.println("File not found");
-
-        if (logIn) {
-
         }
         return problem;
     }
@@ -122,10 +146,10 @@ class sortByRoll implements Comparator<Contestant> {
             if (name1[2].compareTo(name2[2]) == 0) {
                 if (lastName1.compareTo(lastName2) == 0) {
                     return o1.getId().compareTo(o2.getId());
-                }else{
+                } else {
                     return lastName1.compareTo(lastName2);
                 }
-            }else{
+            } else {
                 return name1[2].compareTo(name2[2]);
             }
         }
