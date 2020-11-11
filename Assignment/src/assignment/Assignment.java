@@ -46,7 +46,7 @@ public class Assignment {
         return contestant;
     }
 
-<<<<<<< HEAD
+
     static TreeSet<Problem> loadProblem() {
         TreeSet<Problem> problem = new TreeSet<>(new sortByCat());
         try {
@@ -57,10 +57,9 @@ public class Assignment {
             }
         } catch (FileNotFoundException ex) {
             System.out.println("File not found");
-=======
+
         if (logIn) {
 
->>>>>>> parent of 0113588... menu
         }
         return problem;
     }
