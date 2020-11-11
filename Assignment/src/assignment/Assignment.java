@@ -44,7 +44,9 @@ public class Assignment {
                     for(Contestant i: contestant){
                         if(i.getEmail().equals(userName)){
                             i.changeInfor();
+                            System.out.println(i);
                         }
+                        
                     }
                     break;
                 case '2':
