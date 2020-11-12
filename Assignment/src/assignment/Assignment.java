@@ -279,11 +279,8 @@ public class Assignment {
         }
 
         Date date = new Date();
-<<<<<<< Updated upstream
         SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy");
-=======
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy   hh/mm/ss");
->>>>>>> Stashed changes
+//        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy   hh/mm/ss");
         String fileName = "Contest_" + formatter.format(date) + ".txt";
         int ContestID = (1 + rand.nextInt(999));
         try {
@@ -323,7 +320,7 @@ public class Assignment {
 //        String id = sc.nextLine();
 //        String Id = "ContestID" + id;
 //        try {
-//            Scanner scC = new Scanner(new File("AllContest.txt"));
+//            Scanner scC = new Scanner(new File("allContest.txt"));
 //            while (scC.hasNext()) {
 //                String[] split = sc.nextLine().split("~");
 //                contest.put(split[1], split[0]);
