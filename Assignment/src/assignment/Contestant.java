@@ -28,7 +28,7 @@ public class Contestant {
         this.email = email;
         this.mobilephone = mobilephone;
         this.rank = rank;
-        this.password = password;
+        this.password = Password;
     }
 
     public String getName() {
@@ -85,22 +85,13 @@ public class Contestant {
     }
 
     public void changeInfor() throws FileNotFoundException, IOException {
-//        FileInputStream fis = new FileInputStream("Contestant.dat");
-//        ObjectInputStream ois = new ObjectInputStream(fis);
-//        while(true){
-//        try {
-//            Contestant pX = (Contestant)ois.readObject();
-//            if(pX.getEmail().equals(o.getEmail())){}
-//        } catch (IOException | ClassNotFoundException e ) {
-//        }
-//        }
 
         System.out.println("Change contestant's information ");
         Scanner sc = new Scanner(System.in);
         
         System.out.print("New name: ");
         String name1 = sc.nextLine(); 
-        setName(name1) ;
+        setName(name1.toUpperCase()) ;
         
         System.out.print("New email: ");
         String mail = sc.nextLine();
@@ -113,24 +104,12 @@ public class Contestant {
         }while(!checkValidation(phone, 'h'));
         setMobilephone(phone);
 
-        System.out.print("New password (must be longer than 8 charaters): ");
+        System.out.print("New password (must be longer than 7 and less that 33 charaters): ");
         String pass;
         do{
             pass = sc.nextLine();
         }while(!checkValidation(pass,'a'));
         setPassword(pass);
-        
-        
-//        try {
-//            File f = new File("contestant.dat");
-//            FileOutputStream fos = new FileOutputStream(f);
-//            ObjectOutputStream oos = new ObjectOutputStream(fos);
-////            oos.writeObject(p1);
-//            oos.flush();
-//            oos.close();
-//            fos.close();
-//        } catch (IOException e) {
-//        }
     }
     
     private boolean checkValidation(String str, char type){
