@@ -304,7 +304,7 @@ public class Assignment {
         }
 //        try {
 //            FileWriter writeContest = new FileWriter("allContest.dat", true);
-//            writeContest.write(fileName + "~" + "ContestID" + Integer.toString(ContestID) + "\n");
+//            writeContest.write(fileName + "~" + "Contest ID: " + Integer.toString(ContestID) + "\n");
 //            writeContest.flush();
 //            writeContest.close();
 //        } catch (IOException e) {
@@ -316,7 +316,7 @@ public class Assignment {
 //        TreeSet<Problem> ContestProblem = new TreeSet<>(new sortByCat());
 //        HashMap<String, String> contest = new HashMap<String, String>();
 //        Scanner sc = new Scanner(System.in);
-//        System.out.print("ContestID : ");
+//        System.out.print("Contest ID: ");
 //        String id = sc.nextLine();
 //        String Id = "ContestID" + id;
 //        try {
