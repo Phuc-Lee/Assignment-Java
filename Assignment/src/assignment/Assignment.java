@@ -82,7 +82,7 @@ public class Assignment {
                     break;
 
                 case 3:
-                    FileWriter writerQS1 = new FileWriter("QBs.dat");
+                    
                     System.out.print("Problem ID : ");
                     Scanner scan = new Scanner(System.in);
                     String qsId = scan.nextLine();
@@ -93,7 +93,8 @@ public class Assignment {
                             System.out.println(e1);
                         }
                     }
-
+                    
+                    FileWriter writerQS1 = new FileWriter("QBs.dat");
                     for (Problem em1 : problem) {
 //                        System.out.println(em1);
                         try {
@@ -282,7 +283,7 @@ public class Assignment {
         }
 
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy__hh_mm_ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy");
         String fileName = "Contest_" + formatter.format(date) + ".txt";
         try {
             File myfile = new File(fileName);

@@ -49,7 +49,7 @@ public class Problem {
         this.short_decrip = short_decrip;
         this.long_decrip = long_decrip;
         this.mark_weight = mark_weight;
-        this.category = category;
+        this.category = category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase();
         this.author = author;
     }
 
@@ -169,8 +169,9 @@ public class Problem {
         System.out.print("Question's Name: ");
         setName(sc1.nextLine());
 
+        String category = sc1.nextLine();
         System.out.print("Category: ");
-        setCategory(sc1.nextLine().toLowerCase());
+        setCategory(category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase());
 
         Scanner sc4 = new Scanner(System.in);
         System.out.print("Markweight: ");
@@ -193,6 +194,10 @@ public class Problem {
         
         System.out.print("Question's Name : ");
         setName(sc1.nextLine());
+        
+        String category = sc1.nextLine();
+        System.out.print("Category: ");
+        setCategory(category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase());
         
         Scanner sc2 = new Scanner(System.in);
         System.out.print("Markweight : ");
