@@ -1,0 +1,7 @@
+Contest
+
+problemID=QS505, category=calculus, author=thinhtt@fpt.edu.vn, date=12/11/2020  04:43:16, name=test, mark_weight=2.0, short_decrip=t�t, long_decrip=t�t ting
+
+
+Author: thinhtt@fpt.edu.vn	Date created: 12_11_2020__04_50_02
+Total weight: 2.0	Contest ID: 899

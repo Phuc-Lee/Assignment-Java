@@ -15,28 +15,33 @@ public class GenerateData {
         String[] ten = {"Nhi", "Anh", "Phuc", "Trang", "Lan", "Tien", "Thu", "Minh", "Lam", "Tra", "Hai", "Ha", "Hanh", "Tam", "Thuy", "Phong", "Vu", "Hieu", "Trung"};
         String[] roll = {"HE", "SE", "MK", "EN", "IA", "AI"};
 
-        TreeSet<Contestant> lst = new TreeSet<>();
+//        TreeSet<Contestant> lst = new TreeSet<>();
         Random ran = new Random();
-        FileWriter writer = new FileWriter(new File("contestant.dat"));
-        for (int i = 0; i < 100; i++) {
+        
+        FileWriter writer = new FileWriter("questionBank.dat", true);
+        for (int i = 0; i < 23; i++) {
+//            int a = (int)Math.floor(Math.random()*899 + 100);
+//            String qs = "QS" + Integer.toString(a);
             String a = ho[ran.nextInt(ho.length)];
             String b = dem[ran.nextInt(dem.length)];
             String c = ten[ran.nextInt(ten.length)];
-            String fullName = (a + " " + b + " " + c).toUpperCase();
-            String shortName = (c + a.charAt(0) + b.charAt(0)).toLowerCase();
-            String number = "";
-            String fone = "0";
-            for (int j = 0; j < 9; j++) {
-                if (j < 6) {
-                    number += String.valueOf(ran.nextInt(9));
-                }
-                fone += String.valueOf(ran.nextInt(9));
-            }
-            String rollNum = roll[ran.nextInt(roll.length)] + number;
-            String mail = shortName + rollNum.toLowerCase() + "@fpt.edu.vn";
+//            String fullName = (a + " " + c).toUpperCase();
+            String fullName = (a + " " + c);
+//            String shortName = (c + a.charAt(0) + b.charAt(0)).toLowerCase();
+//            String number = "";
+//            String fone = "0";
+//            for (int j = 0; j < 9; j++) {
+//                if (j < 6) {
+//                    number += String.valueOf(ran.nextInt(9));
+//                }
+//                fone += String.valueOf(ran.nextInt(9));
+//            }
+//            String rollNum = roll[ran.nextInt(roll.length)] + number;
+//            String mail = shortName + rollNum.toLowerCase() + "@fpt.edu.vn";
             try {
 
-                writer.write(fullName + "~" + rollNum + "~" + mail + "~" + fone + "~" + 0 + "~" + "0" + "\n");
+//                writer.write(fullName + "~" + rollNum + "~" + mail + "~" + fone + "~" + 0 + "~" + "0" + "\n");
+                writer.write("~" + fullName + "\n");
                 writer.flush();
                 
             } catch (IOException ex) {

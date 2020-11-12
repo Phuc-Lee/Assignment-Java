@@ -1,16 +1,12 @@
 package assignment;
 
-import java.io.File;
-import java.io.FileInputStream;
+//import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 public class Contestant {
+
     private String name;
     private String id;
     private String email;
@@ -21,7 +17,7 @@ public class Contestant {
     public Contestant() {
         this.name = "Unknown";
         this.email = "Unknown";
-        this.id = "Unkonwn";
+        this.id = "Unknown";
         this.password = "Unknown";
         this.rank = 0;
         this.mobilephone = "Unknown";
@@ -33,7 +29,7 @@ public class Contestant {
         this.email = email;
         this.mobilephone = mobilephone;
         this.rank = rank;
-        this.password = password;
+        this.password = Password;
     }
 
     public String getName() {
@@ -89,78 +85,75 @@ public class Contestant {
         return "Contestant{" + "name=" + name + ", id=" + id + ", email=" + email + ", mobilephone=" + mobilephone + ", rank=" + rank + ", password=" + password + '}';
     }
 
-    public void changeInfor(Contestant i) throws FileNotFoundException, IOException {
-//        FileInputStream fis = new FileInputStream("Contestant.dat");
-//        ObjectInputStream ois = new ObjectInputStream(fis);
-//        while(true){
-//        try {
-//            Contestant pX = (Contestant)ois.readObject();
-//            if(pX.getEmail().equals(o.getEmail())){}
-//        } catch (IOException | ClassNotFoundException e ) {
-//        }
-//        }
+    public void changeInfor() throws FileNotFoundException, IOException {
 
         System.out.println("Change contestant's information ");
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.print("New name: ");
-        String name1 = sc.nextLine(); 
-        i.setName(name1) ;
-        
+        String Name;
+        do {
+            Name = sc.nextLine();
+        } while (!checkValidation(Name, 'n'));
+        setName(Name.toUpperCase());
+
         System.out.print("New email: ");
-        String mail = sc.nextLine();
-        i.setEmail(mail) ;
+        String mail;
+        do {
+            mail = sc.nextLine();
+        } while (!checkValidation(mail, 'm'));
+        setEmail(mail);
 
         System.out.print("New mobilePhone: ");
         String phone;
-        do{
+        do {
             phone = sc.nextLine();
-        }while(!checkValidation(phone, 'h'));
-        i.setMobilephone(phone);
+        } while (!checkValidation(phone, 'h'));
+        setMobilephone(phone);
 
-        System.out.print("New password (must be longer than 8 charaters): ");
+        System.out.print("New password (must be longer than 7 and less that 33 charaters): ");
         String pass;
-        do{
+        do {
             pass = sc.nextLine();
-        }while(!checkValidation(pass,'a'));
+        } while (!checkValidation(pass, 'a'));
         setPassword(pass);
-        FileWriter writer = new FileWriter("contestant.dat");
-        try {
-
-                writer.write(i.getName() +"~" + i.getId() + "~" + i.getEmail() + "~" + i.getMobilephone() + "~" + i.getRank() + "~" + i.getPassword() + "\n");
-                writer.flush();
-                
-            } catch (IOException ex) {
-                System.out.println("File does not exist");
-            }
-        
-//        try {
-//            File f = new File("contestant.dat");
-//            FileOutputStream fos = new FileOutputStream(f);
-//            ObjectOutputStream oos = new ObjectOutputStream(fos);
-////            oos.writeObject(p1);
-//            oos.flush();
-//            oos.close();
-//            fos.close();
-//        } catch (IOException e) {
-//        }
     }
-    
-    private boolean checkValidation(String str, char type){
-        if(type == 'a'){
-            if(str.length() < 8 || str.length() > 32){
-                return false;
-            }
-        }else if(type == 'h'){
-            if(str.length() != 10){
-                return false;
-            }
-            
-            try{
-                int intForm = Integer.parseInt(str);
-            }catch(NumberFormatException e){
-                return false;                
-            }
+
+    private boolean checkValidation(String str, char type) {
+        switch (type) {
+            case 'a':
+                if (str.length() < 8 || str.length() > 32) {
+                    System.out.println("Password must > 7 and < 32 characters");
+                    return false;
+                }
+                break;
+            case 'h':
+                if (str.length() != 10) {
+                    System.out.println("Phone must have 10 numbers");
+                    return false;
+                }
+                try {
+                    int intForm = Integer.parseInt(str);
+                } catch (NumberFormatException e) {
+                    return false;
+                }
+                break;
+            case 'n':
+                String[] checkName;
+                checkName = str.split(" ");
+                if (checkName.length < 3) {
+                    System.out.println("Must have fullname");
+                    return false;
+                }
+                break;
+            case 'm':
+                if (str.contains("@fpt.edu.vn") == false) {
+                    System.out.println("Email must have @fpt.edu.vn");
+                    return false;
+                }
+                break;
+            default:
+                break;
         }
         return true;
     }
