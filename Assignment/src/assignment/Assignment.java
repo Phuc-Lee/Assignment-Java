@@ -65,12 +65,15 @@ public class Assignment {
                     break;
 
                 case 2:
-                    FileWriter writerQS = new FileWriter("QBs.dat", true);
+                    FileWriter writerQS = new FileWriter("QBs.dat");
                     Problem e = new Problem();
                     e.addQues();
+                    problem.add(e);
                     try {
-                        writerQS.write(e.getProblemID() + "~" + e.getCategory() + "~" + e.getAuthor() + "~" + e.getDate()
-                                + "~" + e.getName() + "~" + e.getMark_weight() + "~" + e.getShort_decrip() + "~" + e.getLong_decrip() + "\n");
+                        for(Problem i : problem){
+                            writerQS.write(i.getProblemID() + "~" + i.getCategory() + "~" + i.getAuthor() + "~" + i.getDate() + "~" + i.getName()
+                             + "~" + String.valueOf(i.getMark_weight()) + "~" + i.getShort_decrip() + "~" + i.getLong_decrip() + "\n");
+                        }
                         writerQS.flush();
                     } catch (IOException ex) {
                         System.out.println("File does not exist");
@@ -92,7 +95,7 @@ public class Assignment {
                     }
 
                     for (Problem em1 : problem) {
-
+//                        System.out.println(em1);
                         try {
                             writerQS1.write(em1.getProblemID() + "~" + em1.getCategory() + "~" + em1.getAuthor() + "~" + em1.getDate() + "~" + em1.getName() + "~" + em1.getMark_weight() + "~" + em1.getShort_decrip() + "~" + em1.getLong_decrip() + "\n");
                             writerQS1.flush();

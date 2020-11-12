@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Problem {
@@ -30,6 +31,17 @@ public class Problem {
         this.author = "0";
     }
 
+    public Problem(String problemID) {
+        this.problemID = problemID;
+        this.date = "0";
+        this.name = "0";
+        this.short_decrip = "0";
+        this.long_decrip = "0";
+        this.mark_weight = 0;
+        this.category = "0";
+        this.author = "0";
+    }
+    
     public Problem(String problemID, String category, String author, String date, String name, double mark_weight, String short_decrip, String long_decrip) {
         this.problemID = problemID;
         this.date = date;
@@ -146,12 +158,22 @@ public class Problem {
         Scanner sc1 = new Scanner(System.in);
         String time = formatter.format(date);
         System.out.println("Question's Date: " + time);
-
+        setDate(time);
+        Random ran = new Random();
+        int ranNum = 0;
+        do{
+            ranNum = ran.nextInt(1000);
+        }while(assignment.Assignment.problem.contains(new Problem(String.valueOf(ranNum))));
+        
+        setProblemID(String.valueOf(ranNum));
+        
+        setAuthor(assignment.Assignment.mail);
+        
         System.out.print("Question's Name: ");
         setName(sc1.nextLine());
 
         System.out.print("Category: ");
-        setName(sc1.nextLine());
+        setCategory(sc1.nextLine());
 
         Scanner sc4 = new Scanner(System.in);
         System.out.print("Markweight: ");
@@ -170,7 +192,7 @@ public class Problem {
         Scanner sc1 = new Scanner(System.in);
         String time = formatter.format(date);
         System.out.print("Question's Date : " + time);
-        setDate(formatter.format(date));
+        setDate(time);
         
         System.out.print("Question's Name : ");
         setName(sc1.nextLine());
