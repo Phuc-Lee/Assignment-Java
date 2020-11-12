@@ -1,0 +1,11 @@
+Contest
+
+problemID=QS352, category=Calculus, author=anhbmia242621@fpt.edu.vn, date=13/11/2020, name=tinh hieu, mark_weight=1.0, short_decrip=tinh hieu cac so, long_decrip=tinh hieu cac so da cho
+problemID=QS631, category=Dynamic, author=Do Phong, date=17/10/2000, name=tim day so, mark_weight=2.5, short_decrip=tim so trong day so, long_decrip=tim so X trong mang n phan tu sao cho X = input
+problemID=QS840, category=Geometry, author=Hoang Ha, date=10/07/2001, name=tinh do dai, mark_weight=1.6, short_decrip=tinh khoang cach AB, long_decrip=tinh khoang cach AB biet A(1,4,6), B(9,0,-8)
+problemID=QS833, category=Graph, author=Phan Tam, date=20/1/2014, name=tinh y, mark_weight=1.5, short_decrip=tinh y voi khi biet x, long_decrip=tinh y khi x = 2 ,y = (x^4)^logx
+problemID=QS164, category=Greedy, author=Le Tra, date=21/10/2019, name=toan tham lam, mark_weight=2.0, short_decrip=tinh so xu it nhat, long_decrip=tinh so xu it nhat sao cho tong = 999$
+
+
+Author: anhlqse836564@fpt.edu.vn	Date created: 13_11_2020__06_07
+Total weight: 8.6	Contest ID: Test517

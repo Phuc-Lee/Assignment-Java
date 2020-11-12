@@ -1,4 +1,4 @@
-package nhap;
+package assignment;
 
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -163,7 +163,7 @@ public class Problem {
         String qs = "QS" + Integer.toString(a);
         setProblemID(qs);
 
-        setAuthor(nhap.Nhap.mail);
+        setAuthor(assignment.Main.mail);
 
         System.out.print("Question's Name: ");
         setName(sc1.nextLine());
@@ -201,8 +201,8 @@ public class Problem {
         System.out.print("Question's Name : ");
         setName(sc1.nextLine());
 
-        String category = sc1.nextLine();
         System.out.print("Category: ");
+        String category = sc1.nextLine();
         setCategory(category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase());
 
         Scanner sc2 = new Scanner(System.in);

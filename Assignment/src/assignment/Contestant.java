@@ -1,4 +1,4 @@
-package nhap;
+package assignment;
 
 //import java.io.File;
 import java.io.FileNotFoundException;
@@ -142,13 +142,13 @@ public class Contestant {
                 String[] checkName;
                 checkName = str.split(" ");
                 if (checkName.length == 1) {
-                    System.out.print("You must enter your fullname:");
+                    System.out.print("You must enter your fullname: ");
                     return false;
                 }
                 break;
             case 'm':
                 if (str.contains("@fpt.edu.vn") == false) {
-                    System.out.print("Email is not valid (missing @fpt.edu.vn)! Re-enter:");
+                    System.out.print("Email is not valid (missing @fpt.edu.vn)! Re-enter: ");
                     return false;
                 }
                 break;

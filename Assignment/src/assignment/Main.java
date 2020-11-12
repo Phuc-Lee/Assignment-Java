@@ -1,6 +1,5 @@
-package nhap;
+package assignment;
 
-import java.awt.BorderLayout;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -18,7 +17,7 @@ import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Nhap {
+public class Main {
 
     static TreeSet<Problem> problem;
     static TreeSet<Contestant> contestant;
@@ -190,7 +189,7 @@ public class Nhap {
                 contestID.put(split[0], split[1]);
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Nhap.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         return contestID;
     }
