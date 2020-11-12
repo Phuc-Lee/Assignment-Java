@@ -334,7 +334,7 @@ public class Assignment {
         for (Map.Entry<String, String> entry : contest.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
-            String fileName = "\"" + value + "\"";
+            String fileName =  value ;
             if (Id.equals(entry.getKey())) {
                 File readContest = new File(fileName);
                 try {
