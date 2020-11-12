@@ -70,9 +70,9 @@ public class Assignment {
                     e.addQues();
                     problem.add(e);
                     try {
-                        for(Problem i : problem){
+                        for (Problem i : problem) {
                             writerQS.write(i.getProblemID() + "~" + i.getCategory() + "~" + i.getAuthor() + "~" + i.getDate() + "~" + i.getName()
-                             + "~" + String.valueOf(i.getMark_weight()) + "~" + i.getShort_decrip() + "~" + i.getLong_decrip() + "\n");
+                                    + "~" + String.valueOf(i.getMark_weight()) + "~" + i.getShort_decrip() + "~" + i.getLong_decrip() + "\n");
                         }
                         writerQS.flush();
                     } catch (IOException ex) {
@@ -115,15 +115,9 @@ public class Assignment {
                     break;
 
                 case 6:
-                    break;
-
-                case 7:
-                    break;
-
-                case 8:
+                    PrintContest();
                     break;
             }
-
             if (choice == 0) {
                 System.out.println("\nSee you soon!");
                 sc.close();
@@ -284,6 +278,7 @@ public class Assignment {
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy__hh_mm_ss");
         String fileName = "Contest_" + formatter.format(date) + ".txt";
+        String ContestID = "ContestID: " + (1 + rand.nextInt(999));
         try {
             File myfile = new File(fileName);
             if (myfile.createNewFile()) {
@@ -297,11 +292,68 @@ public class Assignment {
                 }
                 writer.write("\n\nAuthor: " + mail + "\tDate created: " + formatter.format(date) + "\n");
                 writer.flush();
-                writer.write("Total weight: " + sum + "\t" + "Contest ID: " + (1 + rand.nextInt(999)));
+                writer.write("Total weight: " + sum + "\t" + ContestID);
                 writer.close();
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
+        }
+        try {
+            FileWriter writeContest = new FileWriter("allContest.dat", true);
+            writeContest.write(fileName + "~" + ContestID + "\n");
+            writeContest.flush();
+            writeContest.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    static void PrintContest() {
+        TreeSet<Problem> ContestProblem = new TreeSet<>(new sortByCat());
+        HashMap<String, String> contest = new HashMap<String, String>();
+
+        try {
+            Scanner scC = new Scanner(new File("allContest.dat"));
+            while (scC.hasNext()) {
+                String[] split = scC.nextLine().split("~");
+                contest.put(split[1], split[0]);
+            }
+            scC.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println("File not found");
+        }
+        
+        
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("ContestID : ");
+        String id = sc.nextLine();
+        String Id = "ContestID: " + id;
+        
+        for (Map.Entry<String, String> entry : contest.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            String fileName = "\"" + value + "\"";
+            if (Id.equals(entry.getKey())) {
+                File readContest = new File(fileName);
+                try {
+                    Scanner sc1 = new Scanner(readContest);
+                    while (sc1.hasNext()) {
+                        System.out.println(sc1.next());
+                        String[] split = sc.nextLine().split("~");
+                        ContestProblem.add(new Problem(split[0], split[1], split[2], split[3], split[4], Double.parseDouble(split[5]), split[6], split[7]));
+                    }
+                    sc.close();
+                } catch (FileNotFoundException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                for (Problem problem1 : ContestProblem) {
+                    System.out.println(problem1);
+                }
+            } else {
+                System.out.println("Contest ID doesn't exist");
+            }
         }
     }
 

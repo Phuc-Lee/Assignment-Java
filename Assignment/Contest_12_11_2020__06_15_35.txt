@@ -1,0 +1,11 @@
+Contest
+
+problemID=QS736, category=calculus, author=Ho Tien, date=9/7/1999, name=tinh, mark_weight=1.5, short_decrip=tim S, long_decrip=Tim S=1+2+3+...+100
+problemID=QS317, category=dynamic, author=Phan Minh, date=20/3/2005, name=tim so, mark_weight=8.2, short_decrip=tim so trong day so, long_decrip=tim so X trong mang n phan tu sao cho X la so lon nhat
+problemID=QS680, category=geometry, author=Pham Ha, date=15/3/2004, name=tinh dien tich, mark_weight=3.2, short_decrip=tinh dien tich hinh tron, long_decrip=tinh dien tich hinh tron co ban kinh = 5cm
+problemID=QS184, category=graph, author=Nguyen Lam, date=6/11/2013, name=ve hinh, mark_weight=8.0, short_decrip=ve mot hinh tron, long_decrip=ve hinh tron co ban kinh = 5cm
+problemID=QS590, category=greedy, author=Le Minh, date=6/5/2015, name=toan tham lam, mark_weight=1.25, short_decrip=tinh so bao gao it nhat, long_decrip=tinh so bao gao it nhat sao cho tong = 49kg
+
+
+Author: thinhtt@fpt.edu.vn	Date created: 12_11_2020__06_15_35
+Total weight: 22.15	ContestID: 751
