@@ -272,7 +272,8 @@ public class Main {
         TreeSet<Problem> gre = new TreeSet<>(new sortByCat());
         TreeSet<Problem> dyn = new TreeSet<>(new sortByCat());
         TreeSet<Problem> gra = new TreeSet<>(new sortByCat());
-
+        
+        System.out.println("Questions added to the test: ");
         cal.add(new Problem());
         geo.add(new Problem());
         gre.add(new Problem());
@@ -315,7 +316,7 @@ public class Main {
         String fileName = "Contest_" + formatter.format(date) + ".txt";
         String ContestID = "Test" + String.valueOf(1 + rand.nextInt(998));
         contestID.put(ContestID, fileName);
-
+        System.out.println("Created a contest with ID: " + ContestID);
         try {
             File myfile = new File(fileName);
 

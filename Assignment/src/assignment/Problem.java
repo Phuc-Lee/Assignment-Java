@@ -165,29 +165,56 @@ public class Problem {
 
         setAuthor(assignment.Main.mail);
 
-        System.out.print("Question's Name: ");
-        setName(sc1.nextLine());
+        System.out.print("Question's Name : ");
+        String name;
+        do{
+            name = sc1.nextLine();
+            if(!checkNull(name)){
+                System.out.print("Invalid! Re-enter: ");
+            }
+        }while(!checkNull(name));
+        setName(name);
 
         System.out.print("Category: ");
-        String category = sc1.nextLine();
+        String category;
+        do{
+            category = sc1.nextLine();
+            if(!checkNull(category)){
+                System.out.print("Invalid! Re-enter: ");
+            }
+        }while(!checkNull(category));
         setCategory(category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase());
 
-        Scanner sc4 = new Scanner(System.in);
-        System.out.print("Markweight: ");
+        Scanner sc2 = new Scanner(System.in);
+        System.out.print("Markweight : ");
         String weight;
-        do {
-            weight = sc4.nextLine();
+        do {            
+            weight = sc2.nextLine();
             if(!checkValid(weight)){
-                System.out.print("Not valid input! Enter again: ");
+                System.out.print("Invalid! Re-enter: ");
             }
         } while (!checkValid(weight));
         setMark_weight(Double.parseDouble(weight));
 
-        System.out.print("Short decription: ");
-        setShort_decrip(sc1.nextLine());
+        System.out.print("Short decription : ");
+        String shortDes;
+        do{
+            shortDes = sc1.nextLine();
+            if(!checkNull(shortDes)){
+                System.out.print("Invalid! Re-enter: ");
+            }
+        }while(!checkNull(shortDes));
+        setShort_decrip(shortDes);
 
-        System.out.print("Long decription: ");
-        setLong_decrip(sc1.nextLine());
+        System.out.print("Long decription : ");
+        String longDes;
+        do{
+            longDes = sc1.nextLine();
+            if(!checkNull(longDes)){
+                System.out.print("Invalid! Re-enter: ");
+            }
+        }while(!checkNull(longDes));
+        setLong_decrip(longDes);
     }
 
     public void updateQues() {
@@ -199,10 +226,23 @@ public class Problem {
         setDate(time);
 
         System.out.print("Question's Name : ");
-        setName(sc1.nextLine());
-
+        String name;
+        do{
+            name = sc1.nextLine();
+            if(!checkNull(name)){
+                System.out.print("Invalid! Re-enter: ");
+            }
+        }while(!checkNull(name));
+        setName(name);
+        
         System.out.print("Category: ");
-        String category = sc1.nextLine();
+        String category;
+        do{
+            category = sc1.nextLine();
+            if(!checkNull(category)){
+                System.out.print("Invalid! Re-enter: ");
+            }
+        }while(!checkNull(category));
         setCategory(category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase());
 
         Scanner sc2 = new Scanner(System.in);
@@ -211,16 +251,30 @@ public class Problem {
         do {            
             weight = sc2.nextLine();
             if(!checkValid(weight)){
-                System.out.print("Not valid input! Enter again: ");
+                System.out.print("Invalid! Re-enter: ");
             }
         } while (!checkValid(weight));
         setMark_weight(Double.parseDouble(weight));
 
         System.out.print("Short decription : ");
-        setShort_decrip(sc1.nextLine());
+        String shortDes;
+        do{
+            shortDes = sc1.nextLine();
+            if(!checkNull(shortDes)){
+                System.out.print("Invalid! Re-enter: ");
+            }
+        }while(!checkNull(shortDes));
+        setShort_decrip(shortDes);
 
         System.out.print("Long decription : ");
-        setLong_decrip(sc1.nextLine());
+        String longDes;
+        do{
+            longDes = sc1.nextLine();
+            if(!checkNull(longDes)){
+                System.out.print("Invalid! Re-enter: ");
+            }
+        }while(!checkNull(longDes));
+        setLong_decrip(longDes);
     }
 
     private boolean checkValid(String weight) {
@@ -231,5 +285,11 @@ public class Problem {
         }
         return true;
     }
-
+    
+    private boolean checkNull(String a){
+        if(a.length() < 1){
+            return false;
+        }
+        return true;
+    }
 }

@@ -1,0 +1,11 @@
+Contest
+
+problemID=QS252, category=Calculus, author=Do Trang, date=6/12/2001, name=tinh, mark_weight=0.4, short_decrip=tinh, long_decrip=tinh toan S=1!+2!+3!+...+100!
+problemID=QS232, category=Dynamic, author=anhdtmk072364@fpt.edu.vn, date=13/11/2020, name=cat mang, mark_weight=2.7, short_decrip=cat mang cho truoc, long_decrip=cat mang cho truoc thanh 3 phan sao cho moi phan co gia tri do dai la 6
+problemID=﻿QS646, category=Geometry, author=phuc le, date=22/11/2020, name=tinh tong, mark_weight=1.5, short_decrip=tinh tong cac so, long_decrip=cho mot day cac chu so, tinh tong cac so do
+problemID=QS269, category=Graph, author=Phan Trung, date=3/8/2009, name=tinh do dai, mark_weight=0.2, short_decrip=tinh do dai AB, long_decrip=tinh do dai AB biet A(1,2,3) , B(-2,0,-8)
+problemID=QS624, category=Greedy, author=Nguyen Ha, date=29/2/2016, name=toan tham lam, mark_weight=3.0, short_decrip=tinh so xu it nhat, long_decrip=tinh so xu it nhat sao cho tong = 1048$
+
+
+Author: anhlqse836564@fpt.edu.vn	Date created: 13_11_2020__06_16
+Total weight: 7.8	Contest ID: Test678
