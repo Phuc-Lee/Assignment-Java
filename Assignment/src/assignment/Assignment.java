@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
@@ -12,6 +13,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class Assignment {
@@ -70,9 +72,9 @@ public class Assignment {
                     e.addQues();
                     problem.add(e);
                     try {
-                        for(Problem i : problem){
+                        for (Problem i : problem) {
                             writerQS.write(i.getProblemID() + "~" + i.getCategory() + "~" + i.getAuthor() + "~" + i.getDate() + "~" + i.getName()
-                             + "~" + String.valueOf(i.getMark_weight()) + "~" + i.getShort_decrip() + "~" + i.getLong_decrip() + "\n");
+                                    + "~" + String.valueOf(i.getMark_weight()) + "~" + i.getShort_decrip() + "~" + i.getLong_decrip() + "\n");
                         }
                         writerQS.flush();
                     } catch (IOException ex) {
@@ -116,15 +118,9 @@ public class Assignment {
                     break;
 
                 case 6:
-                    break;
-
-                case 7:
-                    break;
-
-                case 8:
+//                    PrintContest();
                     break;
             }
-
             if (choice == 0) {
                 System.out.println("\nSee you soon!");
                 sc.close();
@@ -283,12 +279,17 @@ public class Assignment {
         }
 
         Date date = new Date();
+<<<<<<< Updated upstream
         SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy");
+=======
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy   hh/mm/ss");
+>>>>>>> Stashed changes
         String fileName = "Contest_" + formatter.format(date) + ".txt";
+        int ContestID = (1 + rand.nextInt(999));
         try {
             File myfile = new File(fileName);
             if (myfile.createNewFile()) {
-                FileWriter writer = new FileWriter(fileName, true);
+                FileWriter writer = new FileWriter(fileName);
                 writer.write("Contest\n\n");
                 writer.flush();
                 double sum = 0;
@@ -298,13 +299,60 @@ public class Assignment {
                 }
                 writer.write("\n\nAuthor: " + mail + "\tDate created: " + formatter.format(date) + "\n");
                 writer.flush();
-                writer.write("Total weight: " + sum + "\t" + "Contest ID: " + (1 + rand.nextInt(999)));
+                writer.write("Total weight: " + sum + "\t" + "Contest ID: " + ContestID);
                 writer.close();
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+//        try {
+//            FileWriter writeContest = new FileWriter("allContest.dat", true);
+//            writeContest.write(fileName + "~" + "ContestID" + Integer.toString(ContestID) + "\n");
+//            writeContest.flush();
+//            writeContest.close();
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
     }
+
+//    static void PrintContest() {
+//        TreeSet<Problem> ContestProblem = new TreeSet<>(new sortByCat());
+//        HashMap<String, String> contest = new HashMap<String, String>();
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("ContestID : ");
+//        String id = sc.nextLine();
+//        String Id = "ContestID" + id;
+//        try {
+//            Scanner scC = new Scanner(new File("AllContest.txt"));
+//            while (scC.hasNext()) {
+//                String[] split = sc.nextLine().split("~");
+//                contest.put(split[1], split[0]);
+//            }
+//            sc.close();
+//        } catch (FileNotFoundException ex) {
+//            System.out.println("File not found");
+//        }
+//        for (Map.Entry<String, String> entry : contest.entrySet()) {
+//            String key = entry.getKey();
+//            String value = entry.getValue();
+//            if (Id.equals(entry.getKey())) {
+//                File readContest = new File(entry.getValue());
+//                try {
+//                    Scanner sc1 = new Scanner(readContest);
+//                    while (sc1.hasNext()) {
+//                        String[] split = sc.nextLine().split("~");
+//                        ContestProblem.add(new Problem(split[0], split[1], split[2], split[3], split[4], Double.parseDouble(split[5]), split[6], split[7]));
+//                    }
+//                    sc.close();
+//                } catch (FileNotFoundException ex) {
+//                    System.out.println("File not found");
+//                }
+//                for (Problem problem1 : ContestProblem) {
+//                    System.out.println(problem1);
+//                }
+//            }
+//        }
+//    }
 
     private static Problem take1Pro(TreeSet<Problem> a, int ranNum) {
         int i = 0;
@@ -317,6 +365,7 @@ public class Assignment {
             i++;
         }
         return prob;
+
     }
 
 }
