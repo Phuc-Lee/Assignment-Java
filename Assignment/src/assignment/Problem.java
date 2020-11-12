@@ -154,18 +154,15 @@ public class Problem {
 
     public void addQues() {
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy  hh:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Scanner sc1 = new Scanner(System.in);
         String time = formatter.format(date);
         System.out.println("Question's Date: " + time);
         setDate(time);
         Random ran = new Random();
-        int ranNum = 0;
-        do{
-            ranNum = ran.nextInt(1000);
-        }while(assignment.Assignment.problem.contains(new Problem(String.valueOf(ranNum))));
-        
-        setProblemID(String.valueOf(ranNum));
+        int a = (int)Math.floor(Math.random()*899 + 100);
+        String qs = "QS" + Integer.toString(a);       
+        setProblemID(qs);
         
         setAuthor(assignment.Assignment.mail);
         
@@ -173,7 +170,7 @@ public class Problem {
         setName(sc1.nextLine());
 
         System.out.print("Category: ");
-        setCategory(sc1.nextLine());
+        setCategory(sc1.nextLine().toLowerCase());
 
         Scanner sc4 = new Scanner(System.in);
         System.out.print("Markweight: ");
@@ -188,10 +185,10 @@ public class Problem {
 
     public void updateQues() {
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy  hh:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Scanner sc1 = new Scanner(System.in);
         String time = formatter.format(date);
-        System.out.print("Question's Date : " + time);
+        System.out.println("Question's Date : " + time);
         setDate(time);
         
         System.out.print("Question's Name : ");

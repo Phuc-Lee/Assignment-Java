@@ -41,7 +41,7 @@ public class Assignment {
 
             switch (choice) {
                 case 1:
-                    FileWriter writerCT = new FileWriter("contestan.dat");
+                    FileWriter writerCT = new FileWriter("contestant.dat");
                     for (Contestant i : contestant) {
 //                        System.out.println(i);
                         if (i.getEmail().equals(mail)) {
@@ -145,6 +145,7 @@ public class Assignment {
         try {
             Scanner sc = new Scanner(new File("contestant.dat"));
             while (sc.hasNext()) {
+//                System.out.println(sc.next());
                 String[] split = sc.nextLine().split("~");
 //                System.out.println(split.length);
 //                for(String i: split){
@@ -167,7 +168,7 @@ public class Assignment {
     private static TreeSet<Problem> loadProblem() {
         TreeSet<Problem> problem = new TreeSet<>(new sortByCat());
         try {
-            Scanner sc = new Scanner(new File("questionBank.dat"));
+            Scanner sc = new Scanner(new File("QBs.dat"));
             while (sc.hasNext()) {
                 String[] split = sc.nextLine().split("~");
                 problem.add(new Problem(split[0], split[1], split[2], split[3], split[4], Double.parseDouble(split[5]), split[6], split[7]));
@@ -194,7 +195,7 @@ public class Assignment {
             check = check(mail, pass);
 
             if (check) {
-                System.out.println("Welcome back! " + user);
+                System.out.println("Welcome back! ");
             } else {
                 System.out.println("Check email or password!");
             }
@@ -234,7 +235,7 @@ public class Assignment {
     }
 
     private static void generateContest() {
-        String[] category = {"Calculus", "Geometry", "Greedy", "Dynamic", "Graph"};
+        String[] category = {"calculus", "geometry", "greedy", "dynamic", "graph"};
         Random rand = new Random();
         TreeSet<Problem> contest = new TreeSet<>(new sortByCat());
         TreeSet<Problem> cal = new TreeSet<>(new sortByCat());

@@ -1,11 +1,12 @@
 package assignment;
 
-import java.io.File;
+//import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Contestant {
+
     private String name;
     private String id;
     private String email;
@@ -16,7 +17,7 @@ public class Contestant {
     public Contestant() {
         this.name = "Unknown";
         this.email = "Unknown";
-        this.id = "Unkonwn";
+        this.id = "Unknown";
         this.password = "Unknown";
         this.rank = 0;
         this.mobilephone = "Unknown";
@@ -88,45 +89,71 @@ public class Contestant {
 
         System.out.println("Change contestant's information ");
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.print("New name: ");
-        String name1 = sc.nextLine(); 
-        setName(name1.toUpperCase()) ;
-        
+        String Name;
+        do {
+            Name = sc.nextLine();
+        } while (!checkValidation(Name, 'n'));
+        setName(Name.toUpperCase());
+
         System.out.print("New email: ");
-        String mail = sc.nextLine();
-        setEmail(mail) ;
+        String mail;
+        do {
+            mail = sc.nextLine();
+        } while (!checkValidation(mail, 'm'));
+        setEmail(mail);
 
         System.out.print("New mobilePhone: ");
         String phone;
-        do{
+        do {
             phone = sc.nextLine();
-        }while(!checkValidation(phone, 'h'));
+        } while (!checkValidation(phone, 'h'));
         setMobilephone(phone);
 
         System.out.print("New password (must be longer than 7 and less that 33 charaters): ");
         String pass;
-        do{
+        do {
             pass = sc.nextLine();
-        }while(!checkValidation(pass,'a'));
+        } while (!checkValidation(pass, 'a'));
         setPassword(pass);
     }
-    
-    private boolean checkValidation(String str, char type){
-        if(type == 'a'){
-            if(str.length() < 8 || str.length() > 32){
-                return false;
-            }
-        }else if(type == 'h'){
-            if(str.length() != 10){
-                return false;
-            }
-            
-            try{
-                int intForm = Integer.parseInt(str);
-            }catch(NumberFormatException e){
-                return false;                
-            }
+
+    private boolean checkValidation(String str, char type) {
+        switch (type) {
+            case 'a':
+                if (str.length() < 8 || str.length() > 32) {
+                    System.out.println("Password must > 7 and < 32 characters");
+                    return false;
+                }
+                break;
+            case 'h':
+                if (str.length() != 10) {
+                    System.out.println("Phone must have 10 numbers");
+                    return false;
+                }
+                try {
+                    int intForm = Integer.parseInt(str);
+                } catch (NumberFormatException e) {
+                    return false;
+                }
+                break;
+            case 'n':
+                String[] checkName;
+                checkName = str.split(" ");
+                if (checkName.length < 3) {
+                    System.out.println("Must have fullname");
+                    return false;
+                }
+                break;
+            case 'm':
+                if (str.contains("@fpt.edu.vn") == false) {
+                    System.out.println("Email must have @fpt.edu.vn");
+                    return false;
+                }
+                break;
+            default:
+                break;
         }
         return true;
     }
