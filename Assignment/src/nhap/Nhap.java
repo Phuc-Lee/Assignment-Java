@@ -1,35 +1,40 @@
-package assignment;
+package nhap;
 
+import java.awt.BorderLayout;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class Assignment {
+public class Nhap {
 
     static TreeSet<Problem> problem;
     static TreeSet<Contestant> contestant;
+    static HashMap<String, String> contestID = new HashMap<>();
 
     public static void main(String[] args) throws IOException {
         problem = loadProblem();
         contestant = loadContestant();
+        contestID = loadAllContestID();
         boolean logIn = logIn();
 
-        Scanner sc = new Scanner(System.in);
-        int choice;
+        
+        int choice = 9;
 
         while (logIn) {
+            Scanner sc = new Scanner(System.in);
             System.out.println("\n----------------\nPlease choose your option:");
             System.out.println("\t0. Log out and quit");
             System.out.println("\t1. Change your infomation ");
@@ -38,12 +43,18 @@ public class Assignment {
             System.out.println("\t4. Available problems ");
             System.out.println("\t5. Generate a contest ");
             System.out.println("\t6. Print information of a contest");
-
-            choice = sc.nextInt();
+            int flag = 1;
+            do {
+                try {
+                    choice = sc.nextInt();
+                } catch (InputMismatchException a) {
+                    System.out.print("Invalid choice! Choose again: ");
+                    flag = 0;
+                }
+            } while (flag!=1);
 
             switch (choice) {
                 case 1:
-                    FileWriter writerCT = new FileWriter("contestant.dat");
                     for (Contestant i : contestant) {
 //                        System.out.println(i);
                         if (i.getEmail().equals(mail)) {
@@ -53,6 +64,7 @@ public class Assignment {
                             break;
                         }
                     }
+                    FileWriter writerCT = new FileWriter("contestant.dat");
                     for (Contestant i : contestant) {
 //                        System.out.println(i);
                         try {
@@ -67,10 +79,12 @@ public class Assignment {
                     break;
 
                 case 2:
-                    FileWriter writerQS = new FileWriter("QBs.dat");
                     Problem e = new Problem();
                     e.addQues();
                     problem.add(e);
+                    System.out.println("You just added a problem into the question bank:");
+                    System.out.println(e);
+                    FileWriter writerQS = new FileWriter("QBs.dat");
                     try {
                         for (Problem i : problem) {
                             writerQS.write(i.getProblemID() + "~" + i.getCategory() + "~" + i.getAuthor() + "~" + i.getDate() + "~" + i.getName()
@@ -84,18 +98,23 @@ public class Assignment {
                     break;
 
                 case 3:
-                    
                     System.out.print("Problem ID : ");
                     Scanner scan = new Scanner(System.in);
                     String qsId = scan.nextLine();
 
+                    boolean check = false;
                     for (Problem e1 : problem) {
                         if (e1.getProblemID().equals(qsId)) {
                             e1.updateQues();
+                            check = true;
+                            System.out.println("Problem is updated:");
                             System.out.println(e1);
                         }
                     }
-                    
+                    if (check == false) {
+                        System.out.println("Problem's ID does not exist!");
+                    }
+
                     FileWriter writerQS1 = new FileWriter("QBs.dat");
                     for (Problem em1 : problem) {
 //                        System.out.println(em1);
@@ -118,7 +137,7 @@ public class Assignment {
                     break;
 
                 case 6:
-//                    PrintContest();
+                    printContest();
                     break;
             }
             if (choice == 0) {
@@ -160,6 +179,20 @@ public class Assignment {
 //            System.out.println("");
 //        }
         return contestant;
+    }
+
+    private static HashMap<String, String> loadAllContestID() {
+        Scanner sc;
+        try {
+            sc = new Scanner(new File("contestID_contestName.dat"));
+            while (sc.hasNext()) {
+                String[] split = sc.next().split("~");
+                contestID.put(split[0], split[1]);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Nhap.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return contestID;
     }
 
     private static TreeSet<Problem> loadProblem() {
@@ -248,15 +281,15 @@ public class Assignment {
         gra.add(new Problem());
 
         for (Problem pro : problem) {
-            if (pro.getCategory().equals(category[0])) {
+            if (pro.getCategory().equalsIgnoreCase(category[0])) {
                 cal.add(pro);
-            } else if (pro.getCategory().equals(category[1])) {
+            } else if (pro.getCategory().equalsIgnoreCase(category[1])) {
                 geo.add(pro);
-            } else if (pro.getCategory().equals(category[2])) {
+            } else if (pro.getCategory().equalsIgnoreCase(category[2])) {
                 gre.add(pro);
-            } else if (pro.getCategory().equals(category[3])) {
+            } else if (pro.getCategory().equalsIgnoreCase(category[3])) {
                 dyn.add(pro);
-            } else if (pro.getCategory().equals(category[4])) {
+            } else if (pro.getCategory().equalsIgnoreCase(category[4])) {
                 gra.add(pro);
             }
         }
@@ -279,77 +312,40 @@ public class Assignment {
         }
 
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy");
-//        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy   hh/mm/ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy__hh_mm");
         String fileName = "Contest_" + formatter.format(date) + ".txt";
-        int ContestID = (1 + rand.nextInt(999));
+        String ContestID = "Test" + String.valueOf(1 + rand.nextInt(998));
+        contestID.put(ContestID, fileName);
+
         try {
             File myfile = new File(fileName);
+
             if (myfile.createNewFile()) {
-                FileWriter writer = new FileWriter(fileName);
-                writer.write("Contest\n\n");
-                writer.flush();
-                double sum = 0;
-                for (Problem pro : contest) {
-                    writer.write(pro.toString() + "\n");
-                    sum += pro.getMark_weight();
+                try (FileWriter writer = new FileWriter(fileName)) {
+                    writer.write("Contest\n\n");
+                    writer.flush();
+                    double sum = 0;
+                    for (Problem pro : contest) {
+                        writer.write(pro.toString() + "\n");
+                        sum += pro.getMark_weight();
+                    }
+                    writer.write("\n\nAuthor: " + mail + "\tDate created: " + formatter.format(date) + "\n");
+                    writer.flush();
+                    writer.write("Total weight: " + sum + "\t" + "Contest ID: " + ContestID);
                 }
-                writer.write("\n\nAuthor: " + mail + "\tDate created: " + formatter.format(date) + "\n");
-                writer.flush();
-                writer.write("Total weight: " + sum + "\t" + "Contest ID: " + ContestID);
-                writer.close();
+            }
+            try (FileWriter writer1 = new FileWriter("contestID_contestName.dat", true)) {
+                writer1.write(ContestID + "~" + fileName + "\n");
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-//        try {
-//            FileWriter writeContest = new FileWriter("allContest.dat", true);
-//            writeContest.write(fileName + "~" + "Contest ID: " + Integer.toString(ContestID) + "\n");
-//            writeContest.flush();
-//            writeContest.close();
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
+
     }
 
-//    static void PrintContest() {
-//        TreeSet<Problem> ContestProblem = new TreeSet<>(new sortByCat());
-//        HashMap<String, String> contest = new HashMap<String, String>();
-//        Scanner sc = new Scanner(System.in);
-//        System.out.print("Contest ID: ");
-//        String id = sc.nextLine();
-//        String Id = "ContestID" + id;
-//        try {
-//            Scanner scC = new Scanner(new File("allContest.txt"));
-//            while (scC.hasNext()) {
-//                String[] split = sc.nextLine().split("~");
-//                contest.put(split[1], split[0]);
-//            }
-//            sc.close();
-//        } catch (FileNotFoundException ex) {
-//            System.out.println("File not found");
-//        }
-//        for (Map.Entry<String, String> entry : contest.entrySet()) {
-//            String key = entry.getKey();
-//            String value = entry.getValue();
-//            if (Id.equals(entry.getKey())) {
-//                File readContest = new File(entry.getValue());
-//                try {
-//                    Scanner sc1 = new Scanner(readContest);
-//                    while (sc1.hasNext()) {
-//                        String[] split = sc.nextLine().split("~");
-//                        ContestProblem.add(new Problem(split[0], split[1], split[2], split[3], split[4], Double.parseDouble(split[5]), split[6], split[7]));
-//                    }
-//                    sc.close();
-//                } catch (FileNotFoundException ex) {
-//                    System.out.println("File not found");
-//                }
-//                for (Problem problem1 : ContestProblem) {
-//                    System.out.println(problem1);
-//                }
-//            }
-//        }
-//    }
+    static void PrintContest() {
+
+    }
 
     private static Problem take1Pro(TreeSet<Problem> a, int ranNum) {
         int i = 0;
@@ -365,6 +361,34 @@ public class Assignment {
 
     }
 
+    private static void printContest() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Contest ID to find information: ");
+        String contestId = sc.nextLine();
+        String fileName = "";
+        if (contestID.containsKey(contestId)) {
+            try {
+                for (Map.Entry<String, String> entry : contestID.entrySet()) {
+                    if (entry.getKey().equals(contestId)) {
+                        fileName = entry.getValue();
+                    }
+                }
+                File myFile = new File(fileName);
+                try (Scanner read = new Scanner(myFile)) {
+                    System.out.println("");
+                    while (read.hasNextLine()) {
+                        System.out.println(read.nextLine());
+                    }
+                }
+            } catch (FileNotFoundException ex) {
+                System.out.println("Contest file not found");
+            }
+
+        } else {
+            System.out.println("Contest's ID does not exist!");
+        }
+    }
+
 }
 
 class sortByRoll implements Comparator<Contestant> {
@@ -372,19 +396,21 @@ class sortByRoll implements Comparator<Contestant> {
     @Override
     public int compare(Contestant o1, Contestant o2) {
         String[] name1 = o1.getName().split(" ");
-        String lastName1 = name1[0] + " " + name1[1];
+        String lastName1 = o1.getName().substring(0, o1.getName().length() - name1[name1.length - 1].length());
         String[] name2 = o2.getName().split(" ");
-        String lastName2 = name2[0] + " " + name2[1];
+        String lastName2 = o2.getName().substring(0, o2.getName().length() - name2[name2.length - 1].length());
 
+//        System.out.println(name1[name1.length - 1] + "- -" + lastName1);
+//        System.out.println(name2[name2.length - 1] + "- -" + lastName2);
         if (o1.getId().compareTo(o2.getId()) != 0) {
-            if (name1[2].compareTo(name2[2]) == 0) {
+            if (name1[name1.length - 1].compareTo(name2[name2.length - 1]) == 0) {
                 if (lastName1.compareTo(lastName2) == 0) {
                     return o1.getId().compareTo(o2.getId());
                 } else {
                     return lastName1.compareTo(lastName2);
                 }
             } else {
-                return name1[2].compareTo(name2[2]);
+                return name1[name1.length - 1].compareTo(name2[name2.length - 1]);
             }
         }
         return 0;

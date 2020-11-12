@@ -1,4 +1,4 @@
-package assignment;
+package nhap;
 
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -41,7 +41,7 @@ public class Problem {
         this.category = "0";
         this.author = "0";
     }
-    
+
     public Problem(String problemID, String category, String author, String date, String name, double mark_weight, String short_decrip, String long_decrip) {
         this.problemID = problemID;
         this.date = date;
@@ -146,7 +146,6 @@ public class Problem {
         });
     }
 
-
     @Override
     public String toString() {
         return "problemID=" + problemID + ", category=" + category + ", author=" + author + ", date=" + date + ", name=" + name + ", mark_weight=" + mark_weight + ", short_decrip=" + short_decrip + ", long_decrip=" + long_decrip;
@@ -160,26 +159,33 @@ public class Problem {
         System.out.println("Question's Date: " + time);
         setDate(time);
         Random ran = new Random();
-        int a = (int)Math.floor(Math.random()*899 + 100);
-        String qs = "QS" + Integer.toString(a);       
+        int a = (int) Math.floor(Math.random() * 899 + 100);
+        String qs = "QS" + Integer.toString(a);
         setProblemID(qs);
-        
-        setAuthor(assignment.Assignment.mail);
-        
+
+        setAuthor(nhap.Nhap.mail);
+
         System.out.print("Question's Name: ");
         setName(sc1.nextLine());
 
-        String category = sc1.nextLine();
         System.out.print("Category: ");
+        String category = sc1.nextLine();
         setCategory(category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase());
 
         Scanner sc4 = new Scanner(System.in);
         System.out.print("Markweight: ");
-        setMark_weight(sc4.nextDouble());
-        
+        String weight;
+        do {
+            weight = sc4.nextLine();
+            if(!checkValid(weight)){
+                System.out.print("Not valid input! Enter again: ");
+            }
+        } while (!checkValid(weight));
+        setMark_weight(Double.parseDouble(weight));
+
         System.out.print("Short decription: ");
         setShort_decrip(sc1.nextLine());
-        
+
         System.out.print("Long decription: ");
         setLong_decrip(sc1.nextLine());
     }
@@ -191,23 +197,39 @@ public class Problem {
         String time = formatter.format(date);
         System.out.println("Question's Date : " + time);
         setDate(time);
-        
+
         System.out.print("Question's Name : ");
         setName(sc1.nextLine());
-        
+
         String category = sc1.nextLine();
         System.out.print("Category: ");
         setCategory(category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase());
-        
+
         Scanner sc2 = new Scanner(System.in);
         System.out.print("Markweight : ");
-        setMark_weight(sc2.nextDouble());
-        
+        String weight;
+        do {            
+            weight = sc2.nextLine();
+            if(!checkValid(weight)){
+                System.out.print("Not valid input! Enter again: ");
+            }
+        } while (!checkValid(weight));
+        setMark_weight(Double.parseDouble(weight));
+
         System.out.print("Short decription : ");
         setShort_decrip(sc1.nextLine());
 
         System.out.print("Long decription : ");
         setLong_decrip(sc1.nextLine());
+    }
+
+    private boolean checkValid(String weight) {
+        try {
+            double dbForm = Double.parseDouble(weight);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
     }
 
 }

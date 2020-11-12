@@ -1,4 +1,4 @@
-package assignment;
+package nhap;
 
 //import java.io.File;
 import java.io.FileNotFoundException;
@@ -123,13 +123,13 @@ public class Contestant {
         switch (type) {
             case 'a':
                 if (str.length() < 8 || str.length() > 32) {
-                    System.out.println("Password must > 7 and < 32 characters");
+                    System.out.print("Password must > 7 and < 32 characters: ");
                     return false;
                 }
                 break;
             case 'h':
                 if (str.length() != 10) {
-                    System.out.println("Phone must have 10 numbers");
+                    System.out.print("Phone number must have 10 numbers: ");
                     return false;
                 }
                 try {
@@ -141,14 +141,14 @@ public class Contestant {
             case 'n':
                 String[] checkName;
                 checkName = str.split(" ");
-                if (checkName.length < 3) {
-                    System.out.println("Must have fullname");
+                if (checkName.length == 1) {
+                    System.out.print("You must enter your fullname:");
                     return false;
                 }
                 break;
             case 'm':
                 if (str.contains("@fpt.edu.vn") == false) {
-                    System.out.println("Email must have @fpt.edu.vn");
+                    System.out.print("Email is not valid (missing @fpt.edu.vn)! Re-enter:");
                     return false;
                 }
                 break;
