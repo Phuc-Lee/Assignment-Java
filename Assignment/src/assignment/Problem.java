@@ -1,5 +1,6 @@
 package assignment;
 
+import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -19,6 +20,14 @@ public class Problem {
 
 //    private double total_mark;
     public Problem() {
+        this.problemID = "0";
+        this.date = "0";
+        this.name = "0";
+        this.short_decrip = "0";
+        this.long_decrip = "0";
+        this.mark_weight = 0;
+        this.category = "0";
+        this.author = "0";
     }
 
     public Problem(String problemID, String category, String author, String date, String name, double mark_weight, String short_decrip, String long_decrip) {
@@ -125,61 +134,56 @@ public class Problem {
         });
     }
 
-//    public void setTotal_mark(double total_mark) {
-//        this.total_mark = total_mark;
-//    }
+
     @Override
     public String toString() {
-        return "problemID=" + problemID + ", category=" + category + ", author=" + author + ", date=" + date + ", name=" + name + ", mark_weight=" + mark_weight + ", short_decrip=" + short_decrip + ", long_decrip=" + long_decrip + "\n";
+        return "problemID=" + problemID + ", category=" + category + ", author=" + author + ", date=" + date + ", name=" + name + ", mark_weight=" + mark_weight + ", short_decrip=" + short_decrip + ", long_decrip=" + long_decrip;
     }
 
     public void addQues() {
         Date date = new Date();
-        System.out.println("Question's Date : " + date.toString());
-
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy  hh:mm:ss");
         Scanner sc1 = new Scanner(System.in);
-        System.out.print("Question's Name : ");
+        String time = formatter.format(date);
+        System.out.println("Question's Date: " + time);
+
+        System.out.print("Question's Name: ");
         setName(sc1.nextLine());
 
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Category : ");
-        setName(sc.nextLine());
+        System.out.print("Category: ");
+        setName(sc1.nextLine());
 
-        Scanner sc2 = new Scanner(System.in);
-        System.out.print("Short decription : ");
-        setShort_decrip(sc2.nextLine());
-        
-        Scanner sc3 = new Scanner(System.in);
-        System.out.print("Long decription : ");
-        setLong_decrip(sc3.nextLine());
-        
         Scanner sc4 = new Scanner(System.in);
-        System.out.print("Markweight : ");
+        System.out.print("Markweight: ");
         setMark_weight(sc4.nextDouble());
         
-        Scanner sc5 = new Scanner(System.in);
-        System.out.print("Author : ");
-        setAuthor(sc5.nextLine());
+        System.out.print("Short decription: ");
+        setShort_decrip(sc1.nextLine());
+        
+        System.out.print("Long decription: ");
+        setLong_decrip(sc1.nextLine());
     }
 
-//    public void updateQues() {
-//        Date date = new Date();
-//        System.out.print("Question's Date : " + date.toString());
-//        Scanner sc1 = new Scanner(System.in);
-//        System.out.print("Question's Name : ");
-//        setName(sc1.nextLine());
-//        Scanner sc2 = new Scanner(System.in);
-//        System.out.print("Short decription : ");
-//        setShort_decrip(sc2.nextLine());
-//        Scanner sc3 = new Scanner(System.in);
-//        System.out.print("Long decription : ");
-//        setLong_decrip(sc3.nextLine());
-//        Scanner sc4 = new Scanner(System.in);
-//        System.out.print("Markweight : ");
-//        setMark_weight(sc4.nextDouble());
-//        Scanner sc5 = new Scanner(System.in);
-//        System.out.print("Author : ");
-//        setAuthor(sc5.nextLine());
-//    }
+    public void updateQues() {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy  hh:mm:ss");
+        Scanner sc1 = new Scanner(System.in);
+        String time = formatter.format(date);
+        System.out.print("Question's Date : " + time);
+        setDate(formatter.format(date));
+        
+        System.out.print("Question's Name : ");
+        setName(sc1.nextLine());
+        
+        Scanner sc2 = new Scanner(System.in);
+        System.out.print("Markweight : ");
+        setMark_weight(sc2.nextDouble());
+        
+        System.out.print("Short decription : ");
+        setShort_decrip(sc1.nextLine());
+
+        System.out.print("Long decription : ");
+        setLong_decrip(sc1.nextLine());
+    }
 
 }
