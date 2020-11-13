@@ -1,0 +1,11 @@
+Contest
+
+problemID=QS234, category=Calculus, author=phuc le, date=22/11/2020, name=tinh, mark_weight=1.5, short_decrip=tinh tich cac so, long_decrip=cho mot day cac chu so, tinh tich cac so do
+problemID=QS232, category=Dynamic, author=anhdtmk072364@fpt.edu.vn, date=13/11/2020, name=cat mang, mark_weight=2.7, short_decrip=cat mang cho truoc, long_decrip=cat mang cho truoc thanh 3 phan sao cho moi phan co gia tri do dai la 6
+problemID=QS680, category=Geometry, author=Pham Ha, date=15/3/2004, name=tinh dien tich, mark_weight=3.2, short_decrip=tinh dien tich hinh tron, long_decrip=tinh dien tich hinh tron co ban kinh = 5cm
+problemID=QS184, category=Graph, author=Nguyen Lam, date=6/11/2013, name=ve hinh, mark_weight=8.0, short_decrip=ve mot hinh tron, long_decrip=ve hinh tron co ban kinh = 5cm
+problemID=QS872, category=Greedy, author=thinhtt@fpt.edu.vn, date=13/11/2020, name=test, mark_weight=2.0, short_decrip=find min, long_decrip=How to divide 999kg rice in 3 kind of bag : 10kg , 5kg , 1kg while have the number of bags is smallest
+
+
+Author: thinhtt@fpt.edu.vn	Date created: 13_11_2020__08_14
+Total weight: 17.4	Contest ID: Test139

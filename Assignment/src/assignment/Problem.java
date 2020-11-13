@@ -245,6 +245,8 @@ public class Problem {
         }while(!checkNull(category));
         setCategory(category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase());
 
+        setAuthor(Main.mail);
+        
         Scanner sc2 = new Scanner(System.in);
         System.out.print("Markweight : ");
         String weight;

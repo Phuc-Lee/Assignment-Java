@@ -1,11 +1,10 @@
-QS217~1.2~Trinh Trung~13/11/2020~tim x~1.2~adsf~fasdfasdfasdf
 QS165~Calculus~anhlqse836564@fpt.edu.vn~13/11/2020~1234~2.0~�df~sdf
 QS234~Calculus~phuc le~22/11/2020~tinh~1.5~tinh tich cac so~cho mot day cac chu so, tinh tich cac so do
 QS252~Calculus~Do Trang~6/12/2001~tinh~0.4~tinh~tinh toan S=1!+2!+3!+...+100!
 QS352~Calculus~anhbmia242621@fpt.edu.vn~13/11/2020~tinh hieu~1.0~tinh hieu cac so~tinh hieu cac so da cho
 QS579~Calculus~Ho Hieu~20/11/2003~tinh~0.1~tinh~tinh toan S=1-2+3-...-100
 QS721~Calculus~anhlqse836564@fpt.edu.vn~13/11/2020~0~3.0~q?er~q?er
-QS736~Calculus~Ho Tien~9/7/1999~tinh~1.5~tim S~Tim S=1+2+3+...+100
+QS736~Calculus~thinh@fpt.edu.vn~13/11/2020~tinh gia tri~2.9~tinh gia tri bieu thuc~thinh gia tri bieu thuc ((-2)/3)^100
 QS986~Calculus~anhlqse836564@fpt.edu.vn~13/11/2020~ham so~0.4~cho mot ham so tinh gia tri~cho ham so x^2 + 2x + 1. tinh gia tr? khi x = 10^9
 QS232~Dynamic~anhdtmk072364@fpt.edu.vn~13/11/2020~cat mang~2.7~cat mang cho truoc~cat mang cho truoc thanh 3 phan sao cho moi phan co gia tri do dai la 6
 QS317~Dynamic~Phan Minh~20/3/2005~tim so~8.2~tim so trong day so~tim so X trong mang n phan tu sao cho X la so lon nhat
@@ -15,6 +14,7 @@ QS631~Dynamic~Do Phong~17/10/2000~tim day so~2.5~tim so trong day so~tim so X tr
 QS722~Dynamic~Nguyen Minh~19/5/2007~tim so~9.0~tim so trong day so~tim so X trong mang n phan tu sao cho X la so nguyen to 
 QS192~Geometry~Bui Vu~16/2/2002~ve hinh~10.0~ve mot hinh cau~ve hinh cau co ban kinh = 5cm
 QS203~Geometry~phuc le~22/11/2020~tinh~1.5~tinh hieu cac so~cho mot day cac chu so, tinh hieu cac so do
+QS217~Geometry~Trinh Trung~13/11/2020~Update problem~5.5~tinh chu vi va dien tich~1 manh dat co chieu rong = 1/3 chieu dai. Neu mo rong chieu dai 15m, chieu rong 105m thi duoc 1 hinh vuong. Tinh dien tich va chu vi manh dat 
 QS680~Geometry~Pham Ha~15/3/2004~tinh dien tich~3.2~tinh dien tich hinh tron~tinh dien tich hinh tron co ban kinh = 5cm
 QS840~Geometry~Hoang Ha~10/07/2001~tinh do dai~1.6~tinh khoang cach AB~tinh khoang cach AB biet A(1,4,6), B(9,0,-8)
 ﻿QS646~Geometry~phuc le~22/11/2020~tinh tong~1.5~tinh tong cac so~cho mot day cac chu so, tinh tong cac so do
@@ -27,4 +27,5 @@ QS164~Greedy~Le Tra~21/10/2019~toan tham lam~2.0~tinh so xu it nhat~tinh so xu i
 QS590~Greedy~Le Minh~6/5/2015~toan tham lam~1.25~tinh so bao gao it nhat~tinh so bao gao it nhat sao cho tong = 49kg
 QS593~Greedy~Ho Tien~31/5/2007~toan tham lam~1.5~tinh so bao gao it nhat~tinh so bao gao it nhat sao cho tong = 97kg
 QS624~Greedy~Nguyen Ha~29/2/2016~toan tham lam~3.0~tinh so xu it nhat~tinh so xu it nhat sao cho tong = 1048$
+QS872~Greedy~thinhtt@fpt.edu.vn~13/11/2020~test~2.0~find min~How to divide 999kg rice in 3 kind of bag : 10kg , 5kg , 1kg while have the number of bags is smallest
 QS881~Greedy~Dinh Tra~13/11/2020~toan tham lam~5.3~day la bai toan tham lam~2 nguoi choi tro boc soi trong mot bai soi. hay xem ai la nguoi thua cuoc (la nguoi boc vien soi cuoi cung)
