@@ -343,10 +343,7 @@ public class Main {
 
     }
 
-    static void PrintContest() {
-
-    }
-
+    
     private static Problem take1Pro(TreeSet<Problem> a, int ranNum) {
         int i = 0;
         Problem prob = null;
