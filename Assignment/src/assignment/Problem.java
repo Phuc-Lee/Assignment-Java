@@ -175,15 +175,35 @@ public class Problem {
         } while (!checkNull(name));
         setName(name);
 
-        System.out.print("Category: ");
+        System.out.print("Choose Category: \n");
+        System.out.println("1. Calculus \n2. Dynamic \n3. Graph \n4. Geomatry \n5. Greedy");
         String category;
         do {
             category = sc1.nextLine();
-            if (checkNull(category)) {
-                System.out.print("Invalid! Re-enter: ");
+            switch (category) {
+                case "1":
+                    setCategory("Calculus");
+                    break;
+                case "2":
+                    setCategory("Dynamic");
+                    break;
+                case "3":
+                    setCategory("Graph");
+                    break;
+                case "4":
+                    setCategory("Geomatry");
+                    break;
+                case "5":
+                    setCategory("Greedy");
+                    break;
             }
-        } while (!checkNull(category));
-        setCategory(category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase());
+            if (category.equals("1") || category.equals("2") || category.equals("3") || category.equals("4") || category.equals("5")) {
+                break;
+            } else {
+                System.out.println("Invalid input. Please enter 1->5");
+                continue;
+            }
+        } while (true);
 
         Scanner sc2 = new Scanner(System.in);
         System.out.print("Markweight : ");
