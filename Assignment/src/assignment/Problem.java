@@ -167,30 +167,30 @@ public class Problem {
 
         System.out.print("Question's Name : ");
         String name;
-        do{
+        do {
             name = sc1.nextLine();
-            if(!checkNull(name)){
+            if (!checkNull(name)) {
                 System.out.print("Invalid! Re-enter: ");
             }
-        }while(!checkNull(name));
+        } while (!checkNull(name));
         setName(name);
 
         System.out.print("Category: ");
         String category;
-        do{
+        do {
             category = sc1.nextLine();
-            if(!checkNull(category)){
+            if (checkNull(category)) {
                 System.out.print("Invalid! Re-enter: ");
             }
-        }while(!checkNull(category));
+        } while (!checkNull(category));
         setCategory(category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase());
 
         Scanner sc2 = new Scanner(System.in);
         System.out.print("Markweight : ");
         String weight;
-        do {            
+        do {
             weight = sc2.nextLine();
-            if(!checkValid(weight)){
+            if (!checkValid(weight)) {
                 System.out.print("Invalid! Re-enter: ");
             }
         } while (!checkValid(weight));
@@ -198,26 +198,28 @@ public class Problem {
 
         System.out.print("Short decription : ");
         String shortDes;
-        do{
+        do {
             shortDes = sc1.nextLine();
-            if(!checkNull(shortDes)){
+            if (!checkNull(shortDes)) {
                 System.out.print("Invalid! Re-enter: ");
             }
-        }while(!checkNull(shortDes));
+        } while (!checkNull(shortDes));
         setShort_decrip(shortDes);
 
         System.out.print("Long decription : ");
         String longDes;
-        do{
+        do {
             longDes = sc1.nextLine();
-            if(!checkNull(longDes)){
+            if (!checkNull(longDes)) {
                 System.out.print("Invalid! Re-enter: ");
             }
-        }while(!checkNull(longDes));
+        } while (!checkNull(longDes));
         setLong_decrip(longDes);
     }
 
     public void updateQues() {
+        System.out.println("Change problem's information ");
+        System.out.println("If you want to change, enter new information. If not, press enter");
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Scanner sc1 = new Scanner(System.in);
@@ -225,58 +227,44 @@ public class Problem {
         System.out.println("Question's Date : " + time);
         setDate(time);
 
+        System.out.println("Current name: " + getName());
         System.out.print("Question's Name : ");
         String name;
-        do{
-            name = sc1.nextLine();
-            if(!checkNull(name)){
-                System.out.print("Invalid! Re-enter: ");
-            }
-        }while(!checkNull(name));
-        setName(name);
-        
+        name = sc1.nextLine();
+        if (checkNull(name)) {
+            setName(name);
+        }
+
+        System.out.println("Current category: " + getCategory());
         System.out.print("Category: ");
-        String category;
-        do{
-            category = sc1.nextLine();
-            if(!checkNull(category)){
-                System.out.print("Invalid! Re-enter: ");
-            }
-        }while(!checkNull(category));
-        setCategory(category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase());
+        String category = sc1.nextLine();
+        if (checkNull(category)) {
+            setCategory(category.substring(0, 1).toUpperCase() + category.substring(1).toLowerCase());
+        }
 
         setAuthor(Main.mail);
-        
+
+        System.out.println("Current markweight: " + getMark_weight());
         Scanner sc2 = new Scanner(System.in);
         System.out.print("Markweight : ");
-        String weight;
-        do {            
-            weight = sc2.nextLine();
-            if(!checkValid(weight)){
-                System.out.print("Invalid! Re-enter: ");
-            }
-        } while (!checkValid(weight));
-        setMark_weight(Double.parseDouble(weight));
+        String weight = sc2.nextLine();
+        if (checkNull(weight)) {
+            setMark_weight(Double.parseDouble(weight));
+        }
 
-        System.out.print("Short decription : ");
-        String shortDes;
-        do{
-            shortDes = sc1.nextLine();
-            if(!checkNull(shortDes)){
-                System.out.print("Invalid! Re-enter: ");
-            }
-        }while(!checkNull(shortDes));
-        setShort_decrip(shortDes);
+        System.out.println("Current short description: " + getShort_decrip());
+        System.out.print("Short description : ");
+        String shortDes = sc1.nextLine();
+        if (checkNull(shortDes)) {
+            setShort_decrip(shortDes);
+        }
 
+        System.out.println("Current long description: " + getLong_decrip());
         System.out.print("Long decription : ");
-        String longDes;
-        do{
-            longDes = sc1.nextLine();
-            if(!checkNull(longDes)){
-                System.out.print("Invalid! Re-enter: ");
-            }
-        }while(!checkNull(longDes));
-        setLong_decrip(longDes);
+        String longDes = sc1.nextLine();
+        if (checkNull(longDes)) {
+            setLong_decrip(longDes);
+        }
     }
 
     private boolean checkValid(String weight) {
@@ -287,9 +275,9 @@ public class Problem {
         }
         return true;
     }
-    
-    private boolean checkNull(String a){
-        if(a.length() < 1){
+
+    private boolean checkNull(String a) {
+        if (a.length() < 1) {
             return false;
         }
         return true;

@@ -1,0 +1,11 @@
+Contest
+
+problemID=QS736, category=Calculus, author=thinh@fpt.edu.vn, date=13/11/2020, name=tinh gia tri, mark_weight=2.9, short_decrip=tinh gia tri bieu thuc, long_decrip=thinh gia tri bieu thuc ((-2)/3)^100
+problemID=QS566, category=Dynamic, author=Nguyen Minh, date=19/9/1999, name=tim so, mark_weight=0.5, short_decrip=tim so trong day so, long_decrip=tim so X trong mang n phan tu sao cho X/99
+problemID=QS192, category=Geometry, author=Bui Vu, date=16/2/2002, name=ve hinh, mark_weight=10.0, short_decrip=ve mot hinh cau, long_decrip=ve hinh cau co ban kinh = 5cm
+problemID=QS233, category=Graph, author=Dinh Vu, date=1/1/2011, name=tinh ban kinh, mark_weight=1.3, short_decrip=tinh ban kinh mot hinh tron, long_decrip=tinh hinh tron co chu vi = 10cm
+problemID=QS881, category=Greedy, author=Dinh Tra, date=13/11/2020, name=toan tham lam, mark_weight=5.3, short_decrip=day la bai toan tham lam, long_decrip=2 nguoi choi tro boc soi trong mot bai soi. hay xem ai la nguoi thua cuoc (la nguoi boc vien soi cuoi cung)
+
+
+Author: anhdtmk072364@fpt.edu.vn	Date created: 13_11_2020__10_54
+Total weight: 20.0	Contest ID: Test842

@@ -88,35 +88,61 @@ public class Contestant {
     public void changeInfor() throws FileNotFoundException, IOException {
 
         System.out.println("Change contestant's information ");
+        System.out.println("If you want to change, enter new information. If not, press enter");
         Scanner sc = new Scanner(System.in);
-
+        
+        System.out.println("Current name: " + getName());
         System.out.print("New name: ");
         String Name;
         do {
             Name = sc.nextLine();
+            if(Name.length() == 0){
+                break;
+            }
+            if(checkValidation(Name, 'n')){
+                setName(Name.toUpperCase());
+            }
         } while (!checkValidation(Name, 'n'));
-        setName(Name.toUpperCase());
 
+        System.out.println("Current email: " + getEmail());
         System.out.print("New email: ");
         String mail;
         do {
             mail = sc.nextLine();
+            if(mail.length() == 0){
+                break;
+            }
+            if(checkValidation(mail, 'm')){
+                setEmail(mail);
+            }
         } while (!checkValidation(mail, 'm'));
-        setEmail(mail);
-
+        
+        System.out.println("Current mobilephone: " + getMobilephone());
         System.out.print("New mobilePhone: ");
         String phone;
         do {
             phone = sc.nextLine();
+            if(phone.length() == 0){
+                break;
+            }
+            if(checkValidation(phone, 'h')){
+                setMobilephone(phone);
+            }
         } while (!checkValidation(phone, 'h'));
-        setMobilephone(phone);
-
+        
+        System.out.println("Current password: " + getPassword());
         System.out.print("New password (must be longer than 7 and less that 33 charaters): ");
         String pass;
         do {
             pass = sc.nextLine();
+            if(pass.length() == 0){
+                break;
+            }
+            if(checkValidation(pass, 'a')){
+                setPassword(pass);
+            }
         } while (!checkValidation(pass, 'a'));
-        setPassword(pass);
+        
     }
 
     private boolean checkValidation(String str, char type) {

@@ -319,7 +319,7 @@ public class Main {
         System.out.println("Created a contest with ID: " + ContestID);
         try {
             File myfile = new File(fileName);
-
+        
             if (myfile.createNewFile()) {
                 try (FileWriter writer = new FileWriter(fileName)) {
                     writer.write("Contest\n\n");
